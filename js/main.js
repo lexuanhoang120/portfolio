@@ -1,26 +1,43 @@
+const qs = (selector, scope = document) => scope.querySelector(selector);
+
 const createLink = ({ label, href, external, primary, placeholder }) => {
-  if (placeholder || !href) {
-    const placeholderLink = document.createElement('span');
-    placeholderLink.textContent = label;
-    placeholderLink.className = `btn placeholder${primary ? ' primary' : ''}`;
-    return placeholderLink;
+  const elementTag = placeholder || !href ? 'span' : 'a';
+  const element = document.createElement(elementTag);
+
+  element.textContent = label;
+  element.className = `btn${primary ? ' primary' : ''}${placeholder || !href ? ' placeholder' : ''}`;
+
+  if (elementTag === 'a') {
+    element.href = href;
+
+    if (external) {
+      element.target = '_blank';
+      element.rel = 'noreferrer';
+    }
   }
 
-  const link = document.createElement('a');
-  link.textContent = label;
-  link.href = href;
-  link.className = `btn${primary ? ' primary' : ''}`;
+  return element;
+};
 
-  if (external) {
-    link.target = '_blank';
-    link.rel = 'noreferrer';
-  }
+const appendTags = (parent, tags = []) => {
+  if (!tags.length) return;
 
-  return link;
+  const container = document.createElement('div');
+  container.className = 'tags';
+
+  tags.forEach(tag => {
+    const chip = document.createElement('span');
+    chip.className = 'tag';
+    chip.textContent = tag;
+    container.appendChild(chip);
+  });
+
+  parent.appendChild(container);
 };
 
 const fillNav = () => {
-  const navList = document.querySelector('.nav-links');
+  const navList = qs('.nav-links');
+
   portfolioData.navItems.forEach(item => {
     const link = document.createElement('a');
     link.href = item.href;
@@ -30,131 +47,160 @@ const fillNav = () => {
 };
 
 const fillHero = () => {
-  document.querySelector('.hero-eyebrow').textContent = portfolioData.hero.eyebrow;
-  document.querySelector('.hero-heading').textContent = portfolioData.hero.heading;
-  document.querySelector('.hero-description').textContent = portfolioData.hero.description;
+  qs('.hero-eyebrow').textContent = portfolioData.hero.eyebrow;
+  qs('.hero-heading').textContent = portfolioData.hero.heading;
+  qs('.hero-description').textContent = portfolioData.hero.description;
 
-  const highlightContainer = document.querySelector('.hero-highlights');
-  if (portfolioData.hero.highlights.length) {
-    portfolioData.hero.highlights.forEach(item => {
-      const highlight = document.createElement('div');
-      highlight.className = 'highlight';
-      const value = document.createElement('strong');
-      value.textContent = item.value;
-      const label = document.createElement('span');
-      label.textContent = item.label;
-      highlight.append(value, label);
-      highlightContainer.appendChild(highlight);
-    });
-  } else {
-    highlightContainer.style.display = 'none';
-  }
+  const highlightContainer = qs('.hero-highlights');
+  portfolioData.hero.highlights.forEach(item => {
+    const highlight = document.createElement('article');
+    highlight.className = 'highlight';
 
-  const actionContainer = document.querySelector('.hero-actions');
-  portfolioData.hero.actions.forEach(item => {
-    actionContainer.appendChild(createLink(item));
+    const value = document.createElement('strong');
+    value.textContent = item.value;
+
+    const label = document.createElement('span');
+    label.textContent = item.label;
+
+    highlight.append(value, label);
+    highlightContainer.append(highlight);
   });
+
+  const actionContainer = qs('.hero-actions');
+  portfolioData.hero.actions.forEach(item => actionContainer.append(createLink(item)));
 };
 
 const fillProfile = () => {
-  const profileList = document.querySelector('.profile-list');
+  const profileList = qs('.profile-list');
+
   portfolioData.profile.forEach(item => {
     const entry = document.createElement('div');
-    entry.innerHTML = `<strong>${item.label}:</strong> ${item.value}`;
+
+    const label = document.createElement('strong');
+    label.textContent = `${item.label}:`;
+
+    const value = document.createElement('span');
+    value.textContent = item.value;
+
+    entry.append(label, value);
     profileList.appendChild(entry);
   });
 };
 
 const renderSectionCards = (containerSelector, cards) => {
-  const container = document.querySelector(containerSelector);
+  const container = qs(containerSelector);
+
   cards.forEach(card => {
-    const element = document.createElement('div');
-    element.className = 'card';
-    element.innerHTML = `<h3>${card.title}</h3><p>${card.description}</p>`;
+    const element = document.createElement('article');
+    element.className = 'card reveal';
+
+    const heading = document.createElement('h3');
+    heading.textContent = card.title;
+
+    const description = document.createElement('p');
+    description.textContent = card.description;
+
+    element.append(heading, description);
     container.appendChild(element);
   });
 };
 
+const fillImpact = () => {
+  const statsGrid = qs('#impact .stats-grid');
+
+  portfolioData.impactStats.forEach(stat => {
+    const card = document.createElement('article');
+    card.className = 'card stat-card reveal';
+
+    const value = document.createElement('p');
+    value.className = 'stat-value';
+    value.textContent = stat.value;
+
+    const label = document.createElement('p');
+    label.className = 'stat-label';
+    label.textContent = stat.label;
+
+    card.append(value, label);
+    statsGrid.appendChild(card);
+  });
+};
+
 const fillAbout = () => {
-  document.querySelector('#about .section-subtitle').textContent = portfolioData.about.subtitle;
+  qs('#about .section-subtitle').textContent = portfolioData.about.subtitle;
   renderSectionCards('#about .grid', portfolioData.about.cards);
 };
 
 const fillResearch = () => {
-  document.querySelector('#research .section-subtitle').textContent = portfolioData.research.subtitle;
+  qs('#research .section-subtitle').textContent = portfolioData.research.subtitle;
 
-  const researchGrid = document.querySelector('#research .project-grid');
+  const researchGrid = qs('#research .project-grid');
   portfolioData.research.projects.forEach(project => {
-    const card = document.createElement('div');
-    card.className = 'card project-card';
-    card.innerHTML = `<h3>${project.title}</h3><p>${project.description}</p>`;
+    const card = document.createElement('article');
+    card.className = 'card project-card reveal';
 
-    const tagContainer = document.createElement('div');
-    tagContainer.className = 'tags';
-    project.tags.forEach(tag => {
-      const span = document.createElement('span');
-      span.className = 'tag';
-      span.textContent = tag;
-      tagContainer.appendChild(span);
-    });
+    const heading = document.createElement('h3');
+    heading.textContent = project.title;
 
-    card.appendChild(tagContainer);
+    const description = document.createElement('p');
+    description.textContent = project.description;
+
+    card.append(heading, description);
+    appendTags(card, project.tags);
     researchGrid.appendChild(card);
   });
 };
 
 const fillFeaturedProjects = () => {
-  document.querySelector('#projects .section-subtitle').textContent = portfolioData.featuredProjects.length
-    ? 'Selected projects from research, GitHub, and industry experience.'
-    : '';
+  qs('#projects .section-subtitle').textContent =
+    'Selected projects from research and industry with measurable outcomes.';
 
-  const projectGrid = document.querySelector('#projects .project-grid');
+  const projectGrid = qs('#projects .project-grid');
   const sortedProjects = [...portfolioData.featuredProjects].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
 
   sortedProjects.forEach(project => {
-    const card = document.createElement('div');
-    card.className = 'card project-card';
-    card.innerHTML = `<div class="project-meta"><span class="project-time">${project.time}</span></div><h3>${project.title}</h3><p>${project.description}</p>`;
+    const card = document.createElement('article');
+    card.className = 'card project-card reveal';
+
+    const meta = document.createElement('div');
+    meta.className = 'project-meta';
+
+    const time = document.createElement('span');
+    time.className = 'project-time';
+    time.textContent = project.time;
+    meta.appendChild(time);
+
+    if (project.location?.label) {
+      const location = document.createElement('span');
+      location.className = 'project-location';
+      location.textContent = project.location.label;
+      meta.appendChild(location);
+    }
+
+    const heading = document.createElement('h3');
+    heading.textContent = project.title;
+
+    const description = document.createElement('p');
+    description.textContent = project.description;
+
+    card.append(meta, heading, description);
 
     if (project.metric) {
-      const metric = document.createElement('div');
+      const metric = document.createElement('p');
       metric.className = 'metric';
       metric.textContent = project.metric;
       card.appendChild(metric);
     }
 
-    const tagContainer = document.createElement('div');
-    tagContainer.className = 'tags';
-    project.tags.forEach(tag => {
-      const span = document.createElement('span');
-      span.className = 'tag';
-      span.textContent = tag;
-      tagContainer.appendChild(span);
-    });
-    card.appendChild(tagContainer);
+    appendTags(card, project.tags);
 
-    if (project.location) {
-      const locationElement = project.location.href && project.location.href !== '#'
-        ? document.createElement('a')
-        : document.createElement('span');
-      locationElement.textContent = project.location.label;
-      locationElement.className = 'project-location';
-      if (locationElement.tagName === 'A') {
-        locationElement.href = project.location.href;
-        if (project.location.external) {
-          locationElement.target = '_blank';
-          locationElement.rel = 'noreferrer';
-        }
-      }
-      card.querySelector('.project-meta').appendChild(locationElement);
-    }
-
-    if (project.links && project.links.length) {
+    if (project.links?.length) {
       const linksContainer = document.createElement('div');
       linksContainer.className = 'project-links';
+
       project.links.forEach(linkData => {
         linksContainer.appendChild(createLink(linkData));
       });
+
       card.appendChild(linksContainer);
     }
 
@@ -163,86 +209,160 @@ const fillFeaturedProjects = () => {
 };
 
 const fillExperience = () => {
-  const timeline = document.querySelector('.timeline');
+  const timeline = qs('.timeline');
+
   portfolioData.experience.forEach(item => {
-    const row = document.createElement('div');
-    row.className = 'timeline-item';
-    row.innerHTML = `<div class="time">${item.period}</div><div><h3>${item.title}</h3><p>${item.description}</p></div>`;
+    const row = document.createElement('article');
+    row.className = 'timeline-item reveal';
+
+    const period = document.createElement('p');
+    period.className = 'time';
+    period.textContent = item.period;
+
+    const body = document.createElement('div');
+
+    const title = document.createElement('h3');
+    title.textContent = item.title;
+
+    const description = document.createElement('p');
+    description.textContent = item.description;
+
+    body.append(title, description);
+    row.append(period, body);
+
     timeline.appendChild(row);
   });
 };
 
 const fillManuscripts = () => {
-  document.querySelector('#manuscripts .section-subtitle').textContent = portfolioData.manuscripts.subtitle;
-  const manuscriptGrid = document.querySelector('#manuscripts .manuscript-grid');
+  qs('#manuscripts .section-subtitle').textContent = portfolioData.manuscripts.subtitle;
+  const manuscriptGrid = qs('#manuscripts .manuscript-grid');
 
   portfolioData.manuscripts.items.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card manuscript-card';
-    card.innerHTML = `<p class="manuscript-status">${item.status}</p><h3>${item.title}</h3><p>${item.detail}</p>`;
+    const card = document.createElement('article');
+    card.className = 'card manuscript-card reveal';
+
+    const status = document.createElement('p');
+    status.className = 'manuscript-status';
+    status.textContent = item.status;
+
+    const heading = document.createElement('h3');
+    heading.textContent = item.title;
+
+    const detail = document.createElement('p');
+    detail.textContent = item.detail;
+
+    card.append(status, heading, detail);
     manuscriptGrid.appendChild(card);
   });
 };
 
 const fillCv = () => {
-  document.querySelector('#cv .section-subtitle').textContent = portfolioData.cv.subtitle;
+  qs('#cv .section-subtitle').textContent = portfolioData.cv.subtitle;
 
-  const summary = document.querySelector('.cv-summary');
+  const summary = qs('.cv-summary');
   portfolioData.cv.summary.forEach(item => {
     const row = document.createElement('div');
     row.className = 'cv-row';
+
     const label = document.createElement('strong');
     label.textContent = item.label;
+
     const value = document.createElement('span');
     value.textContent = item.value;
+
     row.append(label, value);
     summary.appendChild(row);
   });
 
-  const actionContainer = document.querySelector('.cv-actions');
-  portfolioData.cv.actions.forEach(item => {
-    actionContainer.appendChild(createLink(item));
-  });
+  const actionContainer = qs('.cv-actions');
+  portfolioData.cv.actions.forEach(item => actionContainer.appendChild(createLink(item)));
 };
 
 const fillEducation = () => {
-  const educationList = document.querySelector('.education-list');
+  const educationList = qs('.education-list');
+
   portfolioData.education.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `<h3>${item.degree}</h3><p><strong>${item.school}</strong> &#8212; ${item.period}</p><p>${item.details}</p>`;
+    const card = document.createElement('article');
+    card.className = 'card reveal';
+
+    const heading = document.createElement('h3');
+    heading.textContent = item.degree;
+
+    const school = document.createElement('p');
+    const schoolName = document.createElement('strong');
+    schoolName.textContent = item.school;
+    const schoolPeriod = document.createTextNode(` - ${item.period}`);
+    school.append(schoolName, schoolPeriod);
+
+    const details = document.createElement('p');
+    details.textContent = item.details;
+
+    card.append(heading, school, details);
     educationList.appendChild(card);
   });
 };
 
 const fillSkills = () => {
-  const skillsGrid = document.querySelector('#skills .skills');
+  const skillsGrid = qs('#skills .skills');
+
   portfolioData.skills.forEach(skill => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `<h3>${skill.title}</h3><p>${skill.description}</p>`;
+    const card = document.createElement('article');
+    card.className = 'card reveal';
+
+    const heading = document.createElement('h3');
+    heading.textContent = skill.title;
+
+    const description = document.createElement('p');
+    description.textContent = skill.description;
+
+    card.append(heading, description);
     skillsGrid.appendChild(card);
   });
 };
 
 const fillCredentials = () => {
-  document.querySelector('#credentials .section-subtitle').textContent = portfolioData.credentials.subtitle;
+  qs('#credentials .section-subtitle').textContent = portfolioData.credentials.subtitle;
   renderSectionCards('#credentials .grid', portfolioData.credentials.cards);
 };
 
 const fillContact = () => {
-  document.querySelector('#contact .section-subtitle').textContent = portfolioData.contact.subtitle;
-  const actionContainer = document.querySelector('#contact .actions');
-  portfolioData.contact.actions.forEach(item => {
-    actionContainer.appendChild(createLink(item));
-  });
-  document.querySelector('footer .container').textContent = portfolioData.contact.footerText;
+  qs('#contact .section-subtitle').textContent = portfolioData.contact.subtitle;
+
+  const actionContainer = qs('#contact .actions');
+  portfolioData.contact.actions.forEach(item => actionContainer.appendChild(createLink(item)));
+
+  qs('footer .container').textContent = portfolioData.contact.footerText;
+};
+
+const initRevealAnimation = () => {
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(item => item.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  items.forEach(item => observer.observe(item));
 };
 
 const createSections = () => {
   fillNav();
   fillHero();
   fillProfile();
+  fillImpact();
   fillAbout();
   fillResearch();
   fillFeaturedProjects();
@@ -253,6 +373,7 @@ const createSections = () => {
   fillSkills();
   fillCredentials();
   fillContact();
+  initRevealAnimation();
 };
 
 window.addEventListener('DOMContentLoaded', () => {

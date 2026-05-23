@@ -1,67 +1,89 @@
 const portfolioData = {
-  siteTitle: "Xuan Hoang Le | AI Researcher & Data Scientist",
+  siteTitle: "Xuan Hoang Le | Applied AI Researcher & Data Scientist",
   navItems: [
     { label: "About", href: "#about" },
+    { label: "Impact", href: "#impact" },
     { label: "Projects", href: "#projects" },
+    { label: "Research", href: "#research" },
     { label: "Experience", href: "#experience" },
-    { label: "CV", href: "#cv" },
     { label: "Contact", href: "#contact" }
   ],
   hero: {
-    eyebrow: "AI Researcher - Data Scientist",
-    heading: "Applied AI for vision, forecasting, and automation.",
+    eyebrow: "AI Researcher · Data Scientist",
+    heading: "I build AI systems that move from paper to production.",
     description:
-      "I build practical AI systems from research ideas to working solutions, with focus on vision-language models, computer vision deployment, and time-series forecasting.",
-    highlights: [],
+      "I work at the intersection of vision-language research and applied data science, turning ideas into reliable systems for forecasting, computer vision, and automation.",
+    highlights: [
+      { value: "13", label: "provinces with electricity forecasts" },
+      { value: "600", label: "restaurant forecasts improved" },
+      { value: "97%", label: "face-attendance recognition accuracy" }
+    ],
     actions: [
-      { label: "Contact Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
-      { label: "Download CV", href: "docs/HOANG_CV.pdf", external: true },
+      { label: "Email Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
+      { label: "Open CV", href: "cv.html" },
       { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/xuan-hoang1999/", external: true }
     ]
   },
   profile: [
-    { label: "Location", value: "Seoul, Korea" },
-    { label: "Current role", value: "Research Assistant, Vision Language Intelligence Laboratory" },
-    { label: "Birthday", value: "1999.11.12" },
-    { label: "Nationality", value: "Vietnamese" },
-    { label: "Visa status", value: "D2" },
-    { label: "Available from", value: "2026.07" },
-    { label: "Email", value: "lexuanhoang120@gmail.com" }
+    { label: "Location", value: "Seoul, South Korea" },
+    { label: "Current role", value: "Research Assistant, Vision Language Intelligence Lab" },
+    { label: "Focus", value: "GUI grounding, computer-use agents, practical AI deployment" },
+    { label: "Availability", value: "From July 2026" },
+    { label: "Visa", value: "D2" },
+    { label: "Nationality", value: "Vietnamese" }
+  ],
+  impactStats: [
+    {
+      value: "< 6%",
+      label: "MAPE across 13 electricity-demand forecasting provinces"
+    },
+    {
+      value: "15%",
+      label: "relative WAPE reduction for 600 restaurants"
+    },
+    {
+      value: "97%",
+      label: "accuracy from deployed face-attendance recognition"
+    },
+    {
+      value: "4.3 / 4.5",
+      label: "M.S. GPA in AI and Robotics at Sejong University"
+    }
   ],
   about: {
     subtitle:
-      "I focus on reliable, real-world AI systems that are measurable and deployable.",
+      "I care about measurable outcomes: not only model quality, but also reliability, deployment fit, and business value.",
     cards: [
       {
-        title: "Research",
-        description: "Training-free refinement methods for GUI grounding and computer-use agents."
+        title: "Research Mindset",
+        description: "I prototype quickly, validate assumptions, and write clearly so research can be reused by teams."
       },
       {
-        title: "Deployment",
-        description: "Real-world systems in face recognition, CCTV filtering, and roadside communication."
+        title: "Engineering Execution",
+        description: "I build full pipelines: data preparation, modeling, evaluation, and handoff-ready implementation."
       },
       {
-        title: "Forecasting & Analytics",
-        description: "Electricity demand, restaurant traffic, and customer-behavior modeling from large datasets."
+        title: "Business Relevance",
+        description: "I translate model performance into metrics stakeholders care about, such as error reduction and decision support."
       }
     ]
   },
   research: {
     subtitle:
-      "At Sejong University, my current research focuses on GUI grounding and computer-use agents, with training-free inference-time refinement.",
+      "Current work at Sejong University focuses on training-free refinement for GUI grounding and computer-use agents.",
     projects: [
       {
         title: "DART for GUI Grounding",
         description:
-          "First-author work proposing a density-aware adaptive refinement technique for GUI grounding in computer-use agents.",
-        tags: ["GUI Grounding", "Computer-Use Agents", "VLMs"]
+          "First-author work proposing density-aware adaptive refinement for GUI grounding in computer-use agents.",
+        tags: ["GUI Grounding", "Computer-Use Agents", "Vision-Language Models"]
       },
       {
         title: "Training-Free ROI Selection",
         description:
-          "Second-author work on ROI selection via semantic vector fields for training-free GUI grounding.",
-        tags: ["ECCV 2026", "Training-Free", "ROI Selection"]
+          "Second-author work using semantic vector fields to select refinement regions without additional training.",
+        tags: ["Training-Free Inference", "Semantic Vector Fields", "ECCV 2026 Submission"]
       }
     ]
   },
@@ -71,59 +93,47 @@ const portfolioData = {
       time: "2024.09 - Present",
       sortKey: 202409,
       description:
-        "Implemented a video filtering module in a CCTV retrieval system using frame sampling and prompt-based inference to classify CCTV and non-CCTV footage.",
-      tags: ["VLM", "Video Understanding", "Prompting"],
-      metric: "Classifies CCTV vs non-CCTV videos in retrieval workflow",
-      location: { label: "Vision Language Intelligence Lab" },
+        "Built a CCTV retrieval filtering module with frame sampling and prompt-based inference to separate CCTV from non-CCTV footage.",
+      metric: "Integrated into retrieval workflow for faster downstream analysis",
+      tags: ["VLM", "Video Understanding", "Prompt Engineering"],
+      location: { label: "Sejong University VLI Lab" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true },
-        { label: "Demo", placeholder: true },
-        { label: "Docs", placeholder: true }
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true }
       ]
     },
     {
-      title: "Electricity-Consumption Forecasting",
+      title: "Electricity Consumption Forecasting",
       time: "2023.04 - 2024.08",
       sortKey: 202304,
       description:
-        "Built monthly electricity forecasting for 13 Vietnamese provinces using trend-seasonal-residual decomposition with linear, statistical, and ARIMA methods.",
-      metric: "MAPE below 6% in all provinces and below 4% in six provinces",
+        "Designed monthly forecasting across 13 provinces using decomposition and statistical time-series modeling.",
+      metric: "MAPE below 6% in all provinces, below 4% in six provinces",
       tags: ["Time Series", "ARIMA", "Forecasting"],
       location: { label: "FPT Applied Data Science Center" },
-      links: [
-        { label: "GitHub", placeholder: true },
-        { label: "Demo", placeholder: true },
-        { label: "Docs", placeholder: true }
-      ]
+      links: []
     },
     {
       title: "Restaurant Traffic Forecasting",
       time: "2023.04 - 2024.08",
       sortKey: 202303,
       description:
-        "Improved daily customer traffic forecasting for 600 restaurants with stronger preprocessing, feature engineering, and model strategy.",
-      metric: "Result: 15% relative reduction in WAPE",
+        "Improved demand prediction for 600 restaurants through data cleaning, feature design, and model strategy updates.",
+      metric: "15% relative WAPE reduction",
       tags: ["Forecasting", "Feature Engineering", "Business Analytics"],
       location: { label: "FPT Applied Data Science Center" },
-      links: [
-        { label: "GitHub", placeholder: true },
-        { label: "Demo", placeholder: true },
-        { label: "Docs", placeholder: true }
-      ]
+      links: []
     },
     {
       title: "Face Recognition Attendance System",
       time: "2022.06 - 2023.03",
       sortKey: 202206,
       description:
-        "Deployed office attendance automation by matching face embeddings from camera streams against registered personnel data.",
-      metric: "Result: 97% accuracy",
+        "Delivered a camera-based attendance automation system using facial embeddings and identity matching.",
+      metric: "97% recognition accuracy",
       tags: ["Face Recognition", "Computer Vision", "Deployment"],
       location: { label: "VTCODE Company" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true },
-        { label: "Demo", placeholder: true },
-        { label: "Docs", placeholder: true }
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true }
       ]
     },
     {
@@ -131,64 +141,60 @@ const portfolioData = {
       time: "2021.01 - 2022.06",
       sortKey: 202101,
       description:
-        "Designed a full automated system from farm data collection to classification model and mechatronic design of mechanical, electrical, and control components.",
+        "Developed an end-to-end mechatronic classification system from image collection to model integration and control design.",
       tags: ["YOLOv5", "Automation", "Mechatronics"],
       location: { label: "HCMUT Control and Automation Lab" },
-      links: [
-        { label: "GitHub", placeholder: true },
-        { label: "Demo", placeholder: true },
-        { label: "Docs", placeholder: true }
-      ]
+      links: []
     }
   ],
   experience: [
     {
       period: "2024.09 - Present",
-      title: "Research Assistant - Vision Language Intelligence Laboratory, Sejong University",
+      title: "Research Assistant · Vision Language Intelligence Laboratory, Sejong University",
       description:
-        "Research on training-free GUI grounding refinement, VLM-based CCTV filtering, roadside communication vision system, annotation, simulation, and manuscript preparation."
+        "Researching training-free GUI grounding refinement methods, building VLM-based vision modules, and preparing manuscripts for peer-reviewed venues."
     },
     {
       period: "2023.04 - 2024.08",
-      title: "Data Scientist - Center of Applied Data Science, FPT Corporation",
+      title: "Data Scientist · Center of Applied Data Science, FPT Corporation",
       description:
-        "Electricity and restaurant forecasting, web-log sequence analysis, customer persona modeling, and web scraping automation from LinkedIn, Google Maps, and Chotot."
+        "Led forecasting and analytics projects spanning electricity demand, restaurant traffic, and large-scale customer behavior analysis."
     },
     {
       period: "2022.06 - 2023.03",
-      title: "Data Scientist - Data Department, VTCODE Company",
+      title: "Data Scientist · Data Department, VTCODE Company",
       description:
-        "Face recognition deployment for attendance, revenue forecasting for F&B branches, and multi-source enterprise data processing."
+        "Deployed face-recognition attendance solutions and built revenue forecasting workflows for F&B operations."
     },
     {
       period: "2021.01 - 2022.06",
-      title: "Research Intern - Control and Automation Laboratory, HCMUT",
+      title: "Research Intern · Control and Automation Laboratory, HCMUT",
       description:
-        "Automated chicken classification research combining deep learning classification and mechatronic system design."
+        "Designed and evaluated an automated chicken classification system combining deep learning with mechatronic implementation."
     }
   ],
   manuscripts: {
     subtitle: "Current publication pipeline.",
     items: [
       {
-        status: "In Prep.",
+        status: "In Preparation",
         title: "A Dataset for Computer-Use Agents",
-        detail: "First author. Target venue: AAAI 2027."
+        detail: "First author · Target venue: AAAI 2027"
       },
       {
         status: "Under Review",
         title: "DART: Density-Aware Adaptive Refinement Technique for GUI Grounding in Computer-Use Agents",
-        detail: "First author. Submitted to IEEE Access."
+        detail: "First author · Submitted to IEEE Access"
       },
       {
         status: "Under Review",
         title: "Training-Free ROI Selection via Semantic Vector Fields for GUI Grounding",
-        detail: "Second author. Submitted to ECCV 2026."
+        detail: "Second author · Submitted to ECCV 2026"
       },
       {
         status: "Prior Submission",
         title: "CGAR: Confidence-Guided Adaptive Refinement for GUI Grounding",
-        detail: "First author. Previously submitted to CVPR 2026."
+        detail: "First author · Previously submitted to CVPR 2026"
       }
     ]
   },
@@ -196,12 +202,12 @@ const portfolioData = {
     {
       title: "AI Research",
       description:
-        "Vision-Language Models, GUI Grounding, GUI Agents, Deep Learning, Computer Vision, Object Detection, Face Recognition."
+        "Vision-language models, GUI grounding, computer-use agents, deep learning, object detection, and face recognition."
     },
     {
       title: "Data Science",
       description:
-        "Time-Series Forecasting, Revenue Prediction, Business Analytics, Feature Engineering, Web Scraping, Data Cleaning, Data Processing."
+        "Time-series forecasting, feature engineering, business analytics, data cleaning, and pipeline automation."
     },
     {
       title: "Programming",
@@ -211,52 +217,47 @@ const portfolioData = {
     {
       title: "Tools",
       description:
-        "MongoDB, Git, Jupyter Notebook, Google Colab, MS Office, SolidWorks, AutoCAD, Proteus."
+        "MongoDB, Git, Jupyter Notebook, Google Colab, SolidWorks, AutoCAD, and Proteus."
     }
   ],
   credentials: {
-    subtitle: "Certifications, languages, and additional profile details from the uploaded CV.",
+    subtitle: "Additional profile highlights.",
     cards: [
       {
+        title: "Education",
+        description: "M.S. in AI and Robotics, Sejong University (GPA 4.3/4.5). B.E. in Mechatronics Engineering, HCMUT (GPA 8.13/10)."
+      },
+      {
         title: "Languages",
-        description: "Vietnamese: Native. English: Intermediate (New TEPS 350/600; TOEIC 650/990)."
+        description: "Vietnamese (native), English (working proficiency, TOEIC 650/990, New TEPS 350/600)."
       },
       {
         title: "Certifications",
-        description: "Coursera: Machine Learning Specialization, Deep Learning Specialization. NVIDIA: Building Video AI Applications at the Edge on Jetson Nano. freeCodeCamp: Scientific Computing with Python, Data Analysis with Python."
-      },
-      {
-        title: "Soft Skills",
-        description: "Analytical thinking, problem-solving, self-motivation, teamwork, initiative, and adaptability."
-      },
-      {
-        title: "Interests",
-        description: "Continuous learning, machinery, automation, programming, statistics, mathematics, sports, singing, music, and travelling."
+        description: "Coursera ML/DL Specializations, NVIDIA Jetson Nano AI courses, freeCodeCamp Python programs."
       }
     ]
   },
   education: [
     {
       degree: "Master of Science in Artificial Intelligence and Robotics",
-      school: "Sejong University, Seoul, Korea",
-      period: "2024-2026",
-      details: "Advisor: Associate Professor Cheol Jeong. Thesis: Confidence-Guided Adaptive Refinement Technique for GUI Grounding. GPA: 4.3/4.5."
+      school: "Sejong University, Seoul",
+      period: "2024 - 2026",
+      details: "Advisor: Associate Professor Cheol Jeong. Thesis on confidence-guided refinement for GUI grounding."
     },
     {
       degree: "Bachelor of Engineering in Mechatronics Engineering",
-      school: "Vietnam National University - Ho Chi Minh University of Technology",
-      period: "2017-2023",
-      details: "PFIEV Program. Advisor: Ph.D. Pham Cong Bang. Thesis: Analysis and Design of an Automated Chicken Classification System. GPA: 8.13/10."
+      school: "Ho Chi Minh University of Technology",
+      period: "2017 - 2023",
+      details: "PFIEV Program. Thesis: Automated chicken classification system."
     }
   ],
   cv: {
-    subtitle:
-      "This portfolio is synchronized with the uploaded CV and includes direct access to the exact PDF version.",
+    subtitle: "Detailed CV and publication context are available in both web and PDF format.",
     summary: [
       { label: "Full name", value: "Xuan Hoang Le" },
-      { label: "Phone", value: "+82 10 7309 4120" },
-      { label: "Nationality / Visa", value: "Vietnamese / D2" },
-      { label: "Available from", value: "2026.07" }
+      { label: "Location", value: "Seoul, South Korea" },
+      { label: "Email", value: "lexuanhoang120@gmail.com" },
+      { label: "Availability", value: "From July 2026" }
     ],
     actions: [
       { label: "Open CV Page", href: "cv.html", primary: true },
@@ -265,12 +266,12 @@ const portfolioData = {
   },
   contact: {
     subtitle:
-      "Open to AI research, data science, and computer vision opportunities.",
+      "I am open to research and applied AI roles in computer vision, agent systems, and data science.",
     actions: [
-      { label: "Email", href: "mailto:lexuanhoang120@gmail.com", primary: true },
+      { label: "Send Email", href: "mailto:lexuanhoang120@gmail.com", primary: true },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/xuan-hoang1999/", external: true },
       { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true }
     ],
-    footerText: "© 2026 Xuan Hoang Le. CV-aligned portfolio."
+    footerText: "© 2026 Xuan Hoang Le · Portfolio"
   }
 };
