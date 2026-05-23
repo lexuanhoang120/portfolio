@@ -2,21 +2,16 @@ const portfolioData = {
   siteTitle: "Xuan Hoang Le | AI Researcher & Data Scientist",
   navItems: [
     { label: "About", href: "#about" },
-    { label: "Research", href: "#research" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
-    { label: "Manuscripts", href: "#manuscripts" },
     { label: "CV", href: "#cv" },
-    { label: "Education", href: "#education" },
-    { label: "Skills", href: "#skills" },
-    { label: "Credentials", href: "#credentials" },
     { label: "Contact", href: "#contact" }
   ],
   hero: {
     eyebrow: "AI Researcher - Data Scientist",
-    heading: "Building practical AI systems from research to deployment.",
+    heading: "Applied AI for vision, forecasting, and automation.",
     description:
-      "Data scientist and AI researcher with a Mechatronics Engineering background and hands-on work in vision-language models, computer vision, time-series forecasting, and business analytics.",
+      "I build practical AI systems from research ideas to working solutions, with focus on vision-language models, computer vision deployment, and time-series forecasting.",
     highlights: [],
     actions: [
       { label: "Contact Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
@@ -36,7 +31,7 @@ const portfolioData = {
   ],
   about: {
     subtitle:
-      "I focus on connecting research with practical applications in automation, computer vision, and intelligent analytics systems.",
+      "I focus on reliable, real-world AI systems that are measurable and deployable.",
     cards: [
       {
         title: "Research",
@@ -54,7 +49,7 @@ const portfolioData = {
   },
   research: {
     subtitle:
-      "Current work at Sejong University focuses on GUI grounding and computer-use agents, especially inference-time refinement methods without additional training.",
+      "At Sejong University, my current research focuses on GUI grounding and computer-use agents, with training-free inference-time refinement.",
     projects: [
       {
         title: "DART for GUI Grounding",
@@ -173,7 +168,7 @@ const portfolioData = {
     }
   ],
   manuscripts: {
-    subtitle: "Publication pipeline from current CV, including under-review and in-preparation work.",
+    subtitle: "Current publication pipeline.",
     items: [
       {
         status: "In Prep.",
@@ -270,7 +265,7 @@ const portfolioData = {
   },
   contact: {
     subtitle:
-      "Open to opportunities in AI research, data science, computer vision, and automation engineering.",
+      "Open to AI research, data science, and computer vision opportunities.",
     actions: [
       { label: "Email", href: "mailto:lexuanhoang120@gmail.com", primary: true },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/xuan-hoang1999/", external: true },
