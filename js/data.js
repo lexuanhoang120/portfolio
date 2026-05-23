@@ -98,7 +98,9 @@ const portfolioData = {
       tags: ["VLM", "Video Understanding", "Prompt Engineering"],
       location: { label: "Sejong University VLI Lab" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true }
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true },
+        { label: "Demo", href: "#", external: true },
+        { label: "Docs", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader/blob/main/docs/summary.pdf", external: true }
       ]
     },
     {
@@ -141,7 +143,9 @@ const portfolioData = {
       tags: ["Face Recognition", "Computer Vision", "Deployment"],
       location: { label: "VTCODE Company" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true }
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true },
+        { label: "Demo", href: "#", external: true },
+        { label: "Docs", href: "https://github.com/lexuanhoang120/Face_Recognition/blob/main/docs/summary.pdf", external: true }
       ]
     },
     {
