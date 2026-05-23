@@ -10,14 +10,15 @@ const portfolioData = {
   ],
   hero: {
     eyebrow: "AI Researcher · Data Scientist",
-    heading: "I build AI systems that move from paper to production.",
+    heading: "Integrate automation into the real world.",
     description:
       "I work at the intersection of vision-language research and applied data science, turning ideas into reliable systems for forecasting, computer vision, and automation.",
-    highlights: [
-      { value: "13", label: "provinces with electricity forecasts" },
-      { value: "600", label: "restaurant forecasts improved" },
-      { value: "97%", label: "face-attendance recognition accuracy" }
-    ],
+    highlights: [],
+      // highlights: [
+    //   { value: "13", label: "provinces with electricity forecasts" },
+    //   { value: "600", label: "restaurant forecasts improved" },
+    //   { value: "97%", label: "face-attendance recognition accuracy" }
+    // ],
     actions: [
       { label: "Email Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
       { label: "View CV", href: "#cv" },
