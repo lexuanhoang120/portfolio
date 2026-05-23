@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xuan Hoang Le | AI Researcher & Data Scientist</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #18212f;
+      --muted: #5c6b7a;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border: #e3e8ef;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 249, 252, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.35rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 88px 0 64px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.4rem);
+      line-height: 1.03;
+      letter-spacing: -0.06em;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .profile-list strong {
+      color: var(--text);
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #425466;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), #7c3aed);
+    }
+
+    .metric {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f8fafc;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 22px;
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .time {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    footer {
+      padding: 44px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .grid,
+      .project-grid,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#top">Xuan Hoang Le</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="container hero">
+      <div>
+        <div class="eyebrow">AI Researcher · Data Scientist · Automation Builder</div>
+        <h1>Building AI systems that connect research with real-world automation.</h1>
+        <p>
+          I am a data scientist and AI researcher with a background in Mechatronics Engineering,
+          currently pursuing an M.S. in Artificial Intelligence and Robotics at Sejong University.
+          My work spans vision-language models, GUI grounding, computer vision, time-series
+          forecasting, and business analytics.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:lexuanhoang120@gmail.com">Contact Me</a>
+          <a class="btn" href="https://github.com/lexuanhoang120" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/xuan-hoang1999/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <h2>Profile</h2>
+        <div class="profile-list">
+          <div><strong>Location:</strong> Seoul, Korea</div>
+          <div><strong>Current role:</strong> Research Assistant, Vision Language Intelligence Lab</div>
+          <div><strong>Education:</strong> M.S. in AI and Robotics, Sejong University</div>
+          <div><strong>Focus:</strong> GUI grounding, computer-use agents, VLMs</div>
+          <div><strong>Availability:</strong> July 2026</div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          I focus on practical AI systems that move beyond prototypes: forecasting models used for
+          business planning, computer vision systems deployed in offices, and research methods that
+          improve the reliability of computer-use agents. My motivation is to integrate automation
+          into the real world through reliable and useful AI systems.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>Research</h3>
+            <p>Training-free inference-time refinement for GUI grounding and computer-use agents.</p>
+          </div>
+          <div class="card">
+            <h3>Engineering</h3>
+            <p>Computer vision, automation, mechatronics, and real-time deployed systems.</p>
+          </div>
+          <div class="card">
+            <h3>Data Science</h3>
+            <p>Forecasting, feature engineering, web-log analysis, and business analytics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research Focus</h2>
+        <p class="section-subtitle">
+          My current research focuses on computer-use agents and GUI grounding. I study methods that
+          improve grounding accuracy at inference time without additional training, using attention-map
+          spatial signals to guide stopping decisions and adaptive cropping.
+        </p>
+        <div class="project-grid">
+          <div class="card project-card">
+            <h3>Confidence-Guided Adaptive Refinement for GUI Grounding</h3>
+            <p>
+              Proposed a training-free refinement method that uses attention-derived confidence to
+              decide when to stop refinement and how much visual context to crop for the next prediction.
+            </p>
+            <div class="tags">
+              <span class="tag">GUI Grounding</span><span class="tag">VLMs</span><span class="tag">Computer-Use Agents</span>
+            </div>
+          </div>
+          <div class="card project-card">
+            <h3>Computer-Use Agent Dataset</h3>
+            <p>
+              Preparing a dataset project for computer-use agents, focused on improving data resources
+              for GUI understanding and reliable agent interaction.
+            </p>
+            <div class="tags">
+              <span class="tag">Dataset</span><span class="tag">GUI Agents</span><span class="tag">AI Research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Selected projects from research, GitHub, and industry experience.</p>
+        <div class="project-grid">
+          <div class="card project-card">
+            <h3>VLM-Based CCTV Video Filtering</h3>
+            <p>
+              Implemented a video filtering module within a CCTV retrieval system using frame sampling
+              and prompt-based inference to classify videos as CCTV or non-CCTV footage.
+            </p>
+            <div class="tags"><span class="tag">VLM</span><span class="tag">Video Understanding</span><span class="tag">Prompting</span></div>
+          </div>
+
+          <div class="card project-card">
+            <h3>Face Recognition Attendance System</h3>
+            <p>
+              Deployed a real-time attendance system by comparing face embeddings with a registered
+              database, enabling camera-based check-in and check-out automation.
+            </p>
+            <div class="metric">Result: 97% accuracy</div>
+            <div class="tags"><span class="tag">Face Recognition</span><span class="tag">ResNet50</span><span class="tag">Computer Vision</span></div>
+          </div>
+
+          <div class="card project-card">
+            <h3>Electricity-Consumption Forecasting</h3>
+            <p>
+              Built monthly forecasting models for 13 Vietnamese provinces using trend, seasonal,
+              and residual decomposition with linear, statistical, and ARIMA-based methods.
+            </p>
+            <div class="metric">Result: MAPE below 6% across all provinces</div>
+            <div class="tags"><span class="tag">Time Series</span><span class="tag">ARIMA</span><span class="tag">Forecasting</span></div>
+          </div>
+
+          <div class="card project-card">
+            <h3>Restaurant Traffic Forecasting</h3>
+            <p>
+              Improved daily customer-traffic forecasting for approximately 600 restaurants through
+              better preprocessing, feature engineering, and modeling strategies.
+            </p>
+            <div class="metric">Result: 15% relative reduction in WAPE</div>
+            <div class="tags"><span class="tag">Forecasting</span><span class="tag">Feature Engineering</span><span class="tag">Business Analytics</span></div>
+          </div>
+
+          <div class="card project-card">
+            <h3>Automated Chicken Classification System</h3>
+            <p>
+              Designed an automated chicken classification and sorting system by collecting farm image
+              data, developing a computer-vision model, and designing mechanical, electrical, and control components.
+            </p>
+            <div class="tags"><span class="tag">YOLOv5</span><span class="tag">Automation</span><span class="tag">Mechatronics</span></div>
+          </div>
+
+          <div class="card project-card">
+            <h3>Beamforming with Deep Learning</h3>
+            <p>
+              Implemented and analyzed deep learning models for beamforming design in large-scale antenna arrays,
+              including sensitivity analysis of training and channel parameters.
+            </p>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">Deep Learning</span><span class="tag">Wireless AI</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">2024.09 — Present</div>
+            <div>
+              <h3>Research Assistant · Sejong University</h3>
+              <p>Researching vision-language models, GUI grounding, computer-use agents, VLM-based video filtering, and manuscript preparation.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2023.04 — 2024.08</div>
+            <div>
+              <h3>Data Scientist · FPT Corporation</h3>
+              <p>Built forecasting models, customer behavior models, web-log analysis pipelines, and automated external data collection workflows.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2022.06 — 2023.03</div>
+            <div>
+              <h3>Data Scientist · VTCODE Company</h3>
+              <p>Deployed facial-recognition attendance systems and built revenue forecasting models for F&B branches.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2021.01 — 2022.06</div>
+            <div>
+              <h3>Research Intern · HCMUT</h3>
+              <p>Designed an automated chicken classification and sorting system combining computer vision and mechatronic system design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+          <div class="card">
+            <h3>AI Research</h3>
+            <p>Vision-Language Models, GUI Grounding, GUI Agents, Deep Learning, Computer Vision, Object Detection, Face Recognition.</p>
+          </div>
+          <div class="card">
+            <h3>Data Science</h3>
+            <p>Time-Series Forecasting, Revenue Prediction, Business Analytics, Feature Engineering, Web Scraping, Data Cleaning, Data Processing.</p>
+          </div>
+          <div class="card">
+            <h3>Programming & Frameworks</h3>
+            <p>Python, C/C++, MATLAB/Simulink, PyTorch, scikit-learn, OpenCV, YOLO, FastAPI, Pandas, NumPy, PySpark, Selenium.</p>
+          </div>
+          <div class="card">
+            <h3>Tools & Software</h3>
+            <p>MongoDB, Git, Jupyter Notebook, Google Colab, MS Office, SolidWorks, AutoCAD, Proteus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          I am open to AI research, data science, computer vision, and automation opportunities.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:lexuanhoang120@gmail.com">lexuanhoang120@gmail.com</a>
+          <a class="btn" href="https://github.com/lexuanhoang120" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/xuan-hoang1999/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Xuan Hoang Le. Built for AI research, data science, and real-world automation.</div>
+  </footer>
+</body>
+</html>
