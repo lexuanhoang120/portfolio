@@ -12,7 +12,7 @@ const portfolioData = {
     eyebrow: "AI Researcher · Data Scientist",
     heading: "Integrate automation into the real world.",
     description:
-      "I work at the intersection of vision-language research and applied data science, turning ideas into reliable systems for forecasting, computer vision, and automation.",
+      "Data scientist and AI researcher with a background in Mechatronics Engineering and experience in vision–language models, computer vision, time-series forecasting, and business analytics.",
     highlights: [],
       // highlights: [
     //   { value: "13", label: "provinces with electricity forecasts" },
@@ -29,7 +29,7 @@ const portfolioData = {
   profile: [
     { label: "Location", value: "Seoul, South Korea" },
     { label: "Current role", value: "Research Assistant, Vision Language Intelligence Lab" },
-    { label: "Focus", value: "GUI grounding, computer-use agents, practical AI deployment" },
+    { label: "Research Interests", value: "GUI grounding, computer-use agents, practical AI deployment" },
     { label: "Availability", value: "From July 2026" },
     { label: "Visa", value: "D2" },
     { label: "Nationality", value: "Vietnamese" }
@@ -267,15 +267,15 @@ const portfolioData = {
   education: [
     {
       degree: "Master of Science in Artificial Intelligence and Robotics",
-      school: "Sejong University, Seoul",
+      school: "Sejong University, Seoul, Vietnam",
       period: "2024 - 2026",
-      details: "Advisor: Associate Professor Cheol Jeong. Thesis on confidence-guided refinement for GUI grounding."
+      details: "Advisor: Associate Professor Cheol Jeong. Thesis title: Confidence-Guided Adaptive Refinement Technique for GUI Grounding."
     },
     {
       degree: "Bachelor of Engineering in Mechatronics Engineering",
-      school: "Ho Chi Minh University of Technology",
+      school: "Vietnam National University – Ho Chi Minh University of Technology, Ho Chi Minh City, Vietnam",
       period: "2017 - 2023",
-      details: "PFIEV Program. Thesis: Automated chicken classification system."
+      details: "PFIEV Program. Thesis title: Analysis and Design of an Automated Chicken Classification System."
     }
   ],
   cv: {
@@ -299,6 +299,6 @@ const portfolioData = {
       { label: "LinkedIn", href: "https://www.linkedin.com/in/xuan-hoang1999/", external: true },
       { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true }
     ],
-    footerText: "© 2026 Xuan Hoang Le · Portfolio"
+    footerText: "Xuan Hoang Le · Portfolio · Updated May 2026"
   }
 };
