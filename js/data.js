@@ -110,7 +110,11 @@ const portfolioData = {
       metric: "MAPE below 6% in all provinces, below 4% in six provinces",
       tags: ["Time Series", "ARIMA", "Forecasting"],
       location: { label: "FPT Applied Data Science Center" },
-      links: []
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting", external: true },
+        { label: "Demo", href: "#", external: true },
+        { label: "Docs", href: "https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting/blob/main/docs/summary.pdf", external: true }
+      ]
     },
     {
       title: "Restaurant Traffic Forecasting",
@@ -121,7 +125,11 @@ const portfolioData = {
       metric: "15% relative WAPE reduction",
       tags: ["Forecasting", "Feature Engineering", "Business Analytics"],
       location: { label: "FPT Applied Data Science Center" },
-      links: []
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Restaurant-Traffic-Forecasting", external: true },
+        { label: "Demo", href: "#", external: true },
+        { label: "Docs", href: "https://github.com/lexuanhoang120/Restaurant-Traffic-Forecasting/blob/main/docs/summary.pdf", external: true }
+      ]
     },
     {
       title: "Face Recognition Attendance System",
@@ -144,7 +152,11 @@ const portfolioData = {
         "Developed an end-to-end mechatronic classification system from image collection to model integration and control design.",
       tags: ["YOLOv5", "Automation", "Mechatronics"],
       location: { label: "HCMUT Control and Automation Lab" },
-      links: []
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Automated-Chicken-Classification", external: true },
+        { label: "Demo", href: "#", external: true },
+        { label: "Docs", href: "https://github.com/lexuanhoang120/Automated-Chicken-Classification/blob/main/docs/summary.pdf", external: true }
+      ]
     }
   ],
   experience: [
