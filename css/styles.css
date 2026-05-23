@@ -212,6 +212,13 @@ h1 {
   border-color: var(--surface-strong);
 }
 
+.btn.placeholder {
+  color: var(--muted);
+  background: #eef2f7;
+  border-style: dashed;
+  cursor: default;
+}
+
 .profile-card,
 .card,
 .timeline-item,
@@ -424,6 +431,12 @@ section:nth-of-type(even) {
 .project-location:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow);
+}
+
+.project-links .btn.placeholder:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-strong);
 }
 
 .manuscript-card {

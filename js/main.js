@@ -1,4 +1,11 @@
-const createLink = ({ label, href, external, primary }) => {
+const createLink = ({ label, href, external, primary, placeholder }) => {
+  if (placeholder || !href) {
+    const placeholderLink = document.createElement('span');
+    placeholderLink.textContent = label;
+    placeholderLink.className = `btn placeholder${primary ? ' primary' : ''}`;
+    return placeholderLink;
+  }
+
   const link = document.createElement('a');
   link.textContent = label;
   link.href = href;
@@ -28,16 +35,20 @@ const fillHero = () => {
   document.querySelector('.hero-description').textContent = portfolioData.hero.description;
 
   const highlightContainer = document.querySelector('.hero-highlights');
-  portfolioData.hero.highlights.forEach(item => {
-    const highlight = document.createElement('div');
-    highlight.className = 'highlight';
-    const value = document.createElement('strong');
-    value.textContent = item.value;
-    const label = document.createElement('span');
-    label.textContent = item.label;
-    highlight.append(value, label);
-    highlightContainer.appendChild(highlight);
-  });
+  if (portfolioData.hero.highlights.length) {
+    portfolioData.hero.highlights.forEach(item => {
+      const highlight = document.createElement('div');
+      highlight.className = 'highlight';
+      const value = document.createElement('strong');
+      value.textContent = item.value;
+      const label = document.createElement('span');
+      label.textContent = item.label;
+      highlight.append(value, label);
+      highlightContainer.appendChild(highlight);
+    });
+  } else {
+    highlightContainer.style.display = 'none';
+  }
 
   const actionContainer = document.querySelector('.hero-actions');
   portfolioData.hero.actions.forEach(item => {
@@ -98,7 +109,7 @@ const fillFeaturedProjects = () => {
     : '';
 
   const projectGrid = document.querySelector('#projects .project-grid');
-  const sortedProjects = [...portfolioData.featuredProjects].sort((a, b) => (b.year || 0) - (a.year || 0));
+  const sortedProjects = [...portfolioData.featuredProjects].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
 
   sortedProjects.forEach(project => {
     const card = document.createElement('div');
@@ -138,11 +149,10 @@ const fillFeaturedProjects = () => {
       card.querySelector('.project-meta').appendChild(locationElement);
     }
 
-    const validLinks = project.links ? project.links.filter(link => link.href && link.href !== '#') : [];
-    if (validLinks.length) {
+    if (project.links && project.links.length) {
       const linksContainer = document.createElement('div');
       linksContainer.className = 'project-links';
-      validLinks.forEach(linkData => {
+      project.links.forEach(linkData => {
         linksContainer.appendChild(createLink(linkData));
       });
       card.appendChild(linksContainer);

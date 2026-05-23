@@ -13,15 +13,11 @@ const portfolioData = {
     { label: "Contact", href: "#contact" }
   ],
   hero: {
-    eyebrow: "AI Researcher - Data Scientist - Automation Builder",
+    eyebrow: "AI Researcher - Data Scientist",
     heading: "Building practical AI systems from research to deployment.",
     description:
       "Data scientist and AI researcher with a Mechatronics Engineering background and hands-on work in vision-language models, computer vision, time-series forecasting, and business analytics.",
-    highlights: [
-      { value: "97%", label: "attendance accuracy from face recognition deployment" },
-      { value: "15%", label: "relative WAPE reduction in restaurant traffic forecasting" },
-      { value: "<6%", label: "MAPE for monthly electricity forecasting in 13 provinces" }
-    ],
+    highlights: [],
     actions: [
       { label: "Contact Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
       { label: "Download CV", href: "docs/HOANG_CV.pdf", external: true },
@@ -77,58 +73,77 @@ const portfolioData = {
   featuredProjects: [
     {
       title: "VLM-Based CCTV Video Filtering",
-      time: "2024",
-      year: 2024,
+      time: "2024.09 - Present",
+      sortKey: 202409,
       description:
         "Implemented a video filtering module in a CCTV retrieval system using frame sampling and prompt-based inference to classify CCTV and non-CCTV footage.",
       tags: ["VLM", "Video Understanding", "Prompting"],
       metric: "Classifies CCTV vs non-CCTV videos in retrieval workflow",
       location: { label: "Vision Language Intelligence Lab" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true }
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true },
+        { label: "Demo", placeholder: true },
+        { label: "Docs", placeholder: true }
+      ]
+    },
+    {
+      title: "Electricity-Consumption Forecasting",
+      time: "2023.04 - 2024.08",
+      sortKey: 202304,
+      description:
+        "Built monthly electricity forecasting for 13 Vietnamese provinces using trend-seasonal-residual decomposition with linear, statistical, and ARIMA methods.",
+      metric: "MAPE below 6% in all provinces and below 4% in six provinces",
+      tags: ["Time Series", "ARIMA", "Forecasting"],
+      location: { label: "FPT Applied Data Science Center" },
+      links: [
+        { label: "GitHub", placeholder: true },
+        { label: "Demo", placeholder: true },
+        { label: "Docs", placeholder: true }
+      ]
+    },
+    {
+      title: "Restaurant Traffic Forecasting",
+      time: "2023.04 - 2024.08",
+      sortKey: 202303,
+      description:
+        "Improved daily customer traffic forecasting for 600 restaurants with stronger preprocessing, feature engineering, and model strategy.",
+      metric: "Result: 15% relative reduction in WAPE",
+      tags: ["Forecasting", "Feature Engineering", "Business Analytics"],
+      location: { label: "FPT Applied Data Science Center" },
+      links: [
+        { label: "GitHub", placeholder: true },
+        { label: "Demo", placeholder: true },
+        { label: "Docs", placeholder: true }
       ]
     },
     {
       title: "Face Recognition Attendance System",
-      time: "2022-2023",
-      year: 2023,
+      time: "2022.06 - 2023.03",
+      sortKey: 202206,
       description:
         "Deployed office attendance automation by matching face embeddings from camera streams against registered personnel data.",
       metric: "Result: 97% accuracy",
       tags: ["Face Recognition", "Computer Vision", "Deployment"],
       location: { label: "VTCODE Company" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true }
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true },
+        { label: "Demo", placeholder: true },
+        { label: "Docs", placeholder: true }
       ]
     },
     {
-      title: "Electricity-Consumption Forecasting",
-      time: "2023-2024",
-      year: 2023,
-      description:
-        "Built monthly electricity forecasting for 13 Vietnamese provinces using trend-seasonal-residual decomposition with linear, statistical, and ARIMA methods.",
-      metric: "MAPE below 6% in all provinces and below 4% in six provinces",
-      tags: ["Time Series", "ARIMA", "Forecasting"],
-      location: { label: "FPT Applied Data Science Center" }
-    },
-    {
-      title: "Restaurant Traffic Forecasting",
-      time: "2023-2024",
-      year: 2023,
-      description:
-        "Improved daily customer traffic forecasting for 600 restaurants with stronger preprocessing, feature engineering, and model strategy.",
-      metric: "Result: 15% relative reduction in WAPE",
-      tags: ["Forecasting", "Feature Engineering", "Business Analytics"],
-      location: { label: "FPT Applied Data Science Center" }
-    },
-    {
       title: "Automated Chicken Classification System",
-      time: "2021-2022",
-      year: 2022,
+      time: "2021.01 - 2022.06",
+      sortKey: 202101,
       description:
         "Designed a full automated system from farm data collection to classification model and mechatronic design of mechanical, electrical, and control components.",
       tags: ["YOLOv5", "Automation", "Mechatronics"],
-      location: { label: "HCMUT Control and Automation Lab" }
+      location: { label: "HCMUT Control and Automation Lab" },
+      links: [
+        { label: "GitHub", placeholder: true },
+        { label: "Demo", placeholder: true },
+        { label: "Docs", placeholder: true }
+      ]
     }
   ],
   experience: [
