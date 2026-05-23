@@ -20,7 +20,7 @@ const portfolioData = {
     ],
     actions: [
       { label: "Email Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
-      { label: "Open CV", href: "cv.html" },
+      { label: "View CV", href: "#cv" },
       { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/xuan-hoang1999/", external: true }
     ]
@@ -252,7 +252,7 @@ const portfolioData = {
     }
   ],
   cv: {
-    subtitle: "Detailed CV and publication context are available in both web and PDF format.",
+    subtitle: "The uploaded CV is embedded below so recruiters can review it directly on this page.",
     summary: [
       { label: "Full name", value: "Xuan Hoang Le" },
       { label: "Location", value: "Seoul, South Korea" },
@@ -260,7 +260,7 @@ const portfolioData = {
       { label: "Availability", value: "From July 2026" }
     ],
     actions: [
-      { label: "Open CV Page", href: "cv.html", primary: true },
+      { label: "Open CV PDF", href: "docs/HOANG_CV.pdf", external: true, primary: true },
       { label: "Download CV PDF", href: "docs/HOANG_CV.pdf", external: true }
     ]
   },
