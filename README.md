@@ -7,6 +7,7 @@ This portfolio is now organized for easy editing and future growth.
 - `css/styles.css` — site styling separated from markup.
 - `js/data.js` — all text content and section data stored in one place.
 - `js/main.js` — renders the page from the data object.
+- `docs/` — CV PDF and per-project demo/docs pages linked from portfolio cards.
 
 ## How to edit
 - Add or update project cards, experience entries, or skills in `js/data.js`.

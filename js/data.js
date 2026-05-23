@@ -77,13 +77,23 @@ const portfolioData = {
         title: "DART for GUI Grounding",
         description:
           "First-author work proposing density-aware adaptive refinement for GUI grounding in computer-use agents.",
-        tags: ["GUI Grounding", "Computer-Use Agents", "Vision-Language Models"]
+        tags: ["GUI Grounding", "Computer-Use Agents", "Vision-Language Models"],
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
+          { label: "Demo", href: "docs/dart-gui-grounding.html#demo" },
+          { label: "Docs", href: "docs/dart-gui-grounding.html#docs" }
+        ]
       },
       {
         title: "Training-Free ROI Selection",
         description:
           "Second-author work using semantic vector fields to select refinement regions without additional training.",
-        tags: ["Training-Free Inference", "Semantic Vector Fields", "ECCV 2026 Submission"]
+        tags: ["Training-Free Inference", "Semantic Vector Fields", "ECCV 2026 Submission"],
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
+          { label: "Demo", href: "docs/training-free-roi-selection.html#demo" },
+          { label: "Docs", href: "docs/training-free-roi-selection.html#docs" }
+        ]
       }
     ]
   },
@@ -99,8 +109,8 @@ const portfolioData = {
       location: { label: "Sejong University VLI Lab" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true },
-        { label: "Demo", href: "#", external: true },
-        { label: "Docs", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader/blob/main/docs/summary.pdf", external: true }
+        { label: "Demo", href: "docs/cctv-video-filtering.html#demo" },
+        { label: "Docs", href: "docs/cctv-video-filtering.html#docs" }
       ]
     },
     {
@@ -114,8 +124,8 @@ const portfolioData = {
       location: { label: "FPT Applied Data Science Center" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting", external: true },
-        { label: "Demo", href: "#", external: true },
-        { label: "Docs", href: "https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting/blob/main/docs/summary.pdf", external: true }
+        { label: "Demo", href: "docs/electricity-consumption-forecasting.html#demo" },
+        { label: "Docs", href: "docs/electricity-consumption-forecasting.html#docs" }
       ]
     },
     {
@@ -129,8 +139,8 @@ const portfolioData = {
       location: { label: "FPT Applied Data Science Center" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Restaurant-Traffic-Forecasting", external: true },
-        { label: "Demo", href: "#", external: true },
-        { label: "Docs", href: "https://github.com/lexuanhoang120/Restaurant-Traffic-Forecasting/blob/main/docs/summary.pdf", external: true }
+        { label: "Demo", href: "docs/restaurant-traffic-forecasting.html#demo" },
+        { label: "Docs", href: "docs/restaurant-traffic-forecasting.html#docs" }
       ]
     },
     {
@@ -144,8 +154,8 @@ const portfolioData = {
       location: { label: "VTCODE Company" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true },
-        { label: "Demo", href: "#", external: true },
-        { label: "Docs", href: "https://github.com/lexuanhoang120/Face_Recognition/blob/main/docs/summary.pdf", external: true }
+        { label: "Demo", href: "docs/face-recognition-attendance.html#demo" },
+        { label: "Docs", href: "docs/face-recognition-attendance.html#docs" }
       ]
     },
     {
@@ -158,8 +168,8 @@ const portfolioData = {
       location: { label: "HCMUT Control and Automation Lab" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Automated-Chicken-Classification", external: true },
-        { label: "Demo", href: "#", external: true },
-        { label: "Docs", href: "https://github.com/lexuanhoang120/Automated-Chicken-Classification/blob/main/docs/summary.pdf", external: true }
+        { label: "Demo", href: "docs/automated-chicken-classification.html#demo" },
+        { label: "Docs", href: "docs/automated-chicken-classification.html#docs" }
       ]
     }
   ],

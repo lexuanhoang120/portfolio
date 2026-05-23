@@ -146,6 +146,18 @@ const fillResearch = () => {
 
     card.append(heading, description);
     appendTags(card, project.tags);
+
+    if (project.links?.length) {
+      const linksContainer = document.createElement('div');
+      linksContainer.className = 'project-links';
+
+      project.links.forEach(linkData => {
+        linksContainer.appendChild(createLink(linkData));
+      });
+
+      card.appendChild(linksContainer);
+    }
+
     researchGrid.appendChild(card);
   });
 };
