@@ -94,15 +94,20 @@ li + li {
   margin-top: 6px;
 }
 
-.video-wrap {
+..video-wrap {
   margin: 16px 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .video-wrap video {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 14px;
   border: 1px solid var(--line);
   background: #000;
+  display: block;
 }
 
 .demo-evidence {
@@ -125,13 +130,57 @@ li + li {
 
 .evidence-card img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 12px;
   border: 1px solid var(--line);
   display: block;
+}
+
+@media (max-width: 760px) {
+  .demo-evidence {
+    grid-template-columns: 1fr;
+  }
 }
 
 .back {
   display: inline-block;
   margin-bottom: 14px;
   font-size: 0.92rem;
+}
+
+
+.demo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.demo-gallery figure {
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.demo-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.demo-gallery figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .demo-gallery {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map LinkedIn Email | Project Docs</title>
+  <link rel="stylesheet" href="project-pages.css" />
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="../index.html#projects">← Back to portfolio</a>
+
+    <article class="card">
+      <h1>Map LinkedIn Email</h1>
+      <p class="meta">Industry Project · 2024 · FPT Applied Data Science Center</p>
+
+      <p>
+        Privacy-aware workflow to enrich email-based customer records with LinkedIn profile information.
+        The pipeline checks whether each email can be matched, then normalizes profile, work-experience,
+        and education data for downstream analytics.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/lexuanhoang120/map-linkedin-email" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="#docs">Go to Docs</a>
+      </div>
+
+      <section id="demo" class="section">
+        <h2>Demo</h2>
+        <p>
+          Demo flow: email sample → authorized profile lookup → classify match result → parse profile response →
+          normalize profile/work/education data → aggregate and evaluate data quality.
+        </p>
+
+        <div class="demo-evidence">
+          <article class="evidence-card">
+            <h3>Email No Match</h3>
+            <img
+              src="https://raw.githubusercontent.com/lexuanhoang120/map-linkedin-email/main/docs/no%20match.png"
+              alt="Example of email no-match result"
+            />
+          </article>
+
+          <article class="evidence-card">
+            <h3>Email Match</h3>
+            <img
+              src="https://raw.githubusercontent.com/lexuanhoang120/map-linkedin-email/main/docs/demo1.png"
+              alt="Example of email successfully matched to LinkedIn profile"
+            />
+          </article>
+        </div>
+
+        <ul>
+          <li>Input sample size: 50,000 emails.</li>
+          <li>Matched to LinkedIn accounts: 4,070 (8.1%).</li>
+          <li>Profiles with work-experience data: 2,041 (4.1%).</li>
+          <li>Profiles with education data: 1,560 (3.1%).</li>
+        </ul>
+      </section>
+
+      <section id="docs" class="section">
+        <h2>Docs</h2>
+        <ul>
+          <li>Main scripts: <code>1_get_token_from_outlook.py</code> and <code>2_email_in_linkedin.py</code>.</li>
+          <li>Lookup outcomes are classified into matched profile, partial match, no match, and failed lookup.</li>
+          <li>Matched responses are parsed into structured profile, work-experience, and education tables.</li>
+          <li>Expected outputs: <code>access_token.json</code> and <code>email_match_linkedin.json</code>.</li>
+          <li>Local resources include <code>resource/email.xlsx</code>, <code>resource/account.txt</code>, and optional <code>resource/chromedriver</code>.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Insights</h2>
+        <ul>
+          <li>Most matched profiles with work data had one listed experience.</li>
+          <li>Common latest job titles included Student, Manager, Teacher, Project Manager, and Engineer.</li>
+          <li>Work end year was often missing, likely due to current or incomplete positions.</li>
+          <li>Most matched profiles with education data had one listed education record.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Compliance Note</h2>
+        <p>
+          Use only with authorized accounts and approved data-processing permissions.
+          Credentials, tokens, and personally identifiable data should remain in controlled local/private environments.
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

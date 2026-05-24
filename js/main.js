@@ -105,86 +105,58 @@ const renderSectionCards = (containerSelector, cards) => {
   });
 };
 
-const fillImpact = () => {
-  const statsGrid = qs('#impact .stats-grid');
-
-  portfolioData.impactStats.forEach(stat => {
-    const card = document.createElement('article');
-    card.className = 'card stat-card reveal';
-
-    const value = document.createElement('p');
-    value.className = 'stat-value';
-    value.textContent = stat.value;
-
-    const label = document.createElement('p');
-    label.className = 'stat-label';
-    label.textContent = stat.label;
-
-    card.append(value, label);
-    statsGrid.appendChild(card);
-  });
-};
-
 const fillAbout = () => {
   qs('#about .section-subtitle').textContent = portfolioData.about.subtitle;
   renderSectionCards('#about .grid', portfolioData.about.cards);
 };
 
-const fillResearch = () => {
-  qs('#research .section-subtitle').textContent = portfolioData.research.subtitle;
-
-  const researchGrid = qs('#research .project-grid');
-  portfolioData.research.projects.forEach(project => {
-    const card = document.createElement('article');
-    card.className = 'card project-card reveal';
-
-    const heading = document.createElement('h3');
-    heading.textContent = project.title;
-
-    const description = document.createElement('p');
-    description.textContent = project.description;
-
-    card.append(heading, description);
-    appendTags(card, project.tags);
-
-    if (project.links?.length) {
-      const linksContainer = document.createElement('div');
-      linksContainer.className = 'project-links';
-
-      project.links.forEach(linkData => {
-        linksContainer.appendChild(createLink(linkData));
-      });
-
-      card.appendChild(linksContainer);
-    }
-
-    researchGrid.appendChild(card);
-  });
-};
-
 const fillFeaturedProjects = () => {
   qs('#projects .section-subtitle').textContent =
-    'Selected projects from research and industry with measurable outcomes.';
+    'A unified view of industry projects and academic research outputs.';
 
   const projectGrid = qs('#projects .project-grid');
-  const sortedProjects = [...portfolioData.featuredProjects].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
+  const projectItems = portfolioData.featuredProjects.map(item => ({ ...item, itemType: 'project' }));
+  const manuscriptItems = portfolioData.manuscripts.items.map((item, index) => ({
+    ...item,
+    itemType: 'research',
+    sortKey: 202600 - index
+  }));
+  const sortedProjects = [...projectItems, ...manuscriptItems].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
 
   sortedProjects.forEach(project => {
     const card = document.createElement('article');
     card.className = 'card project-card reveal';
+    if (project.id) {
+      card.id = project.id;
+    }
 
     const meta = document.createElement('div');
     meta.className = 'project-meta';
 
+    const domain = project.domain || (project.tags || []).find(tag => tag === 'Industry' || tag === 'Academic');
+    if (domain) {
+      const domainBadge = document.createElement('span');
+      domainBadge.className = `project-domain ${domain.toLowerCase()}`;
+      domainBadge.textContent = domain;
+      meta.appendChild(domainBadge);
+    }
+
     const time = document.createElement('span');
     time.className = 'project-time';
-    time.textContent = project.time;
+    time.textContent = project.period || project.time || '';
     meta.appendChild(time);
 
     if (project.location?.label) {
-      const location = document.createElement('span');
+      const location = project.location.href ? document.createElement('a') : document.createElement('span');
       location.className = 'project-location';
       location.textContent = project.location.label;
+      if (location.tagName === 'A') {
+        location.href = project.location.href;
+        if (project.location.external) {
+          location.target = '_blank';
+          location.rel = 'noreferrer';
+        }
+      }
       meta.appendChild(location);
     }
 
@@ -192,7 +164,7 @@ const fillFeaturedProjects = () => {
     heading.textContent = project.title;
 
     const description = document.createElement('p');
-    description.textContent = project.description;
+    description.textContent = project.description || project.detail || '';
 
     card.append(meta, heading, description);
 
@@ -203,7 +175,8 @@ const fillFeaturedProjects = () => {
       card.appendChild(metric);
     }
 
-    appendTags(card, project.tags);
+    const detailTags = (project.tags || []).filter(tag => tag !== 'Industry' && tag !== 'Academic');
+    appendTags(card, detailTags);
 
     if (project.links?.length) {
       const linksContainer = document.createElement('div');
@@ -226,6 +199,9 @@ const fillExperience = () => {
   portfolioData.experience.forEach(item => {
     const row = document.createElement('article');
     row.className = 'timeline-item reveal';
+    if (item.id) {
+      row.id = item.id;
+    }
 
     const period = document.createElement('p');
     period.className = 'time';
@@ -234,38 +210,58 @@ const fillExperience = () => {
     const body = document.createElement('div');
 
     const title = document.createElement('h3');
-    title.textContent = item.title;
+    title.textContent = item.position || item.title || '';
+
+    const meta = document.createElement('p');
+    meta.className = 'experience-meta';
+    if (item.organization) {
+      if (item.organizationLink) {
+        const organizationLink = document.createElement('a');
+        organizationLink.className = 'experience-org-link';
+        organizationLink.href = item.organizationLink;
+        organizationLink.textContent = item.organization;
+        meta.appendChild(organizationLink);
+      } else {
+        meta.appendChild(document.createTextNode(item.organization));
+      }
+    }
+
+    if (item.organization && item.location) {
+      meta.appendChild(document.createTextNode(' · '));
+    }
+
+    if (item.location) {
+      meta.appendChild(document.createTextNode(item.location));
+    }
 
     const description = document.createElement('p');
-    description.textContent = item.description;
+    description.textContent = item.summary || item.description || '';
 
-    body.append(title, description);
+    body.append(title, meta, description);
+
+    if (item.highlights?.length) {
+      const highlightList = document.createElement('ul');
+      highlightList.className = 'experience-highlights';
+      item.highlights.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        highlightList.appendChild(li);
+      });
+      body.appendChild(highlightList);
+    }
+
+    if (item.relatedLinks?.length) {
+      const linksContainer = document.createElement('div');
+      linksContainer.className = 'experience-links';
+      item.relatedLinks.forEach(linkData => {
+        linksContainer.appendChild(createLink(linkData));
+      });
+      body.appendChild(linksContainer);
+    }
+
     row.append(period, body);
 
     timeline.appendChild(row);
-  });
-};
-
-const fillManuscripts = () => {
-  qs('#manuscripts .section-subtitle').textContent = portfolioData.manuscripts.subtitle;
-  const manuscriptGrid = qs('#manuscripts .manuscript-grid');
-
-  portfolioData.manuscripts.items.forEach(item => {
-    const card = document.createElement('article');
-    card.className = 'card manuscript-card reveal';
-
-    const status = document.createElement('p');
-    status.className = 'manuscript-status';
-    status.textContent = item.status;
-
-    const heading = document.createElement('h3');
-    heading.textContent = item.title;
-
-    const detail = document.createElement('p');
-    detail.textContent = item.detail;
-
-    card.append(status, heading, detail);
-    manuscriptGrid.appendChild(card);
   });
 };
 
@@ -308,10 +304,75 @@ const fillEducation = () => {
     school.append(schoolName, schoolPeriod);
 
     const details = document.createElement('p');
-    details.textContent = item.details;
+    details.textContent = item.details || '';
 
-    card.append(heading, school, details);
+    card.append(heading, school);
+
+    if (item.advisor) {
+      const advisor = document.createElement('p');
+      advisor.innerHTML = `<strong>Advisor:</strong> ${item.advisor}`;
+      card.appendChild(advisor);
+    }
+
+    card.appendChild(details);
+
+    if (item.thesis) {
+      const thesis = document.createElement('p');
+      thesis.innerHTML = `<strong>Thesis title:</strong> ${item.thesis}`;
+      card.appendChild(thesis);
+    }
+
+    if (item.gpa) {
+      const gpa = document.createElement('p');
+      gpa.innerHTML = `<strong>GPA:</strong> ${item.gpa}`;
+      card.appendChild(gpa);
+    }
+
     educationList.appendChild(card);
+  });
+};
+
+const fillReferences = () => {
+  qs('#references .section-subtitle').textContent = portfolioData.references.subtitle;
+  const referencesGrid = qs('#references .references-grid');
+
+  portfolioData.references.items.forEach(item => {
+    const card = document.createElement('article');
+    card.className = 'card reveal';
+
+    const name = document.createElement('h3');
+    name.textContent = item.name;
+
+    const title = document.createElement('p');
+    title.className = 'reference-line';
+    title.textContent = item.title;
+
+    const department = document.createElement('p');
+    department.className = 'reference-line';
+    department.textContent = item.department;
+
+    const organization = document.createElement('p');
+    organization.className = 'reference-line';
+    organization.textContent = item.organization;
+
+    const location = document.createElement('p');
+    location.className = 'reference-line';
+    location.textContent = item.location;
+
+    const phone = document.createElement('p');
+    phone.className = 'reference-line';
+    phone.innerHTML = `<strong>T:</strong> ${item.phone}`;
+
+    card.append(name, title, department, organization, location, phone);
+
+    if (item.email) {
+      const email = document.createElement('p');
+      email.className = 'reference-line';
+      email.innerHTML = `<strong>Email:</strong> <a href="mailto:${item.email}">${item.email}</a>`;
+      card.appendChild(email);
+    }
+
+    referencesGrid.appendChild(card);
   });
 };
 
@@ -374,16 +435,14 @@ const createSections = () => {
   fillNav();
   fillHero();
   fillProfile();
-  fillImpact();
   fillAbout();
-  fillResearch();
   fillFeaturedProjects();
   fillExperience();
-  fillManuscripts();
   fillCv();
   fillEducation();
   fillSkills();
   fillCredentials();
+  fillReferences();
   fillContact();
   initRevealAnimation();
 };

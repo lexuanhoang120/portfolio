@@ -9,40 +9,91 @@
 <body>
   <main class="page">
     <a class="back" href="../index.html#projects">← Back to portfolio</a>
+
     <article class="card">
       <h1>Electricity Consumption Forecasting</h1>
       <p class="meta">FPT Applied Data Science Center · 2023.04 - 2024.08</p>
+
       <p>
-        Monthly electricity-demand forecasting project across 13 provinces using decomposition-based and statistical
-        time-series methods.
+        Monthly electricity consumption forecasting project for 13 provinces in Vietnam using
+        decomposition-based time-series modeling.
       </p>
 
       <div class="actions">
         <a class="btn primary" href="https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn" href="#demo">Go to Demo</a>
         <a class="btn" href="#docs">Go to Docs</a>
       </div>
 
       <section id="demo" class="section">
         <h2>Demo</h2>
         <p>
-          Demo flow: choose province → load historical monthly series → run forecasting model → visualize actual vs.
-          predicted demand.
+          The demo illustrates the full forecasting pipeline with synthetic historical data (not real production data).
+          It supports both T+1 forecasting (next month) and recursive T+12 forecasting (next 12 months).
+        </p>
+        <p>
+          Run command: <code>python3 demo_prediction.py</code>
         </p>
         <ul>
-          <li>Coverage: 13 provinces.</li>
-          <li>Result: MAPE below 6% in all provinces.</li>
-          <li>Best segment: MAPE below 4% in six provinces.</li>
+          <li>Forecast components: <code>trend</code>, <code>season</code>, <code>resid</code>, and final <code>y_pr</code>.</li>
+          <li>Generated file: <code>docs/demo_forecast_next_month.csv</code> (T+1 forecast).</li>
+          <li>Generated file: <code>docs/demo_forecast_12_months.csv</code> (recursive T+12 forecast).</li>
+          <li>Generated plots: <code>docs/forecast_sample.png</code> and per-province <code>docs/forecast_&lt;province&gt;.png</code>.</li>
+          <li>Detailed BDINH visuals: total and component forecast plots for clearer error inspection.</li>
         </ul>
+
+        <div class="demo-evidence">
+          <article class="evidence-card">
+            <h3>Demo Overview Plot</h3>
+            <img
+              src="https://raw.githubusercontent.com/lexuanhoang120/Electricity-Consumption-Forecasting/main/docs/forecast_sample.png"
+              alt="Forecast sample plot showing history and predicted values across provinces"
+            />
+          </article>
+
+          <article class="evidence-card">
+            <h3>BDINH Component Decomposition</h3>
+            <img
+              src="https://raw.githubusercontent.com/lexuanhoang120/Electricity-Consumption-Forecasting/main/docs/forecast_BDINH_components_three_plots.png"
+              alt="BDINH trend, seasonal, and residual forecast component plots"
+            />
+          </article>
+        </div>
       </section>
 
       <section id="docs" class="section">
-        <h2>Technical Notes</h2>
+        <h2>Docs</h2>
+        <p>
+          The forecasting method decomposes each province series and predicts each component separately:
+        </p>
         <ul>
-          <li>Trend/seasonal/residual decomposition pipeline.</li>
-          <li>Statistical baselines and ARIMA family comparison.</li>
-          <li>Error analysis by province for model selection and reporting.</li>
+          <li><strong>Trend:</strong> linear model for long-term movement.</li>
+          <li><strong>Seasonality:</strong> statistical model with parameter controls (<code>lag</code>, <code>order1</code>, <code>order2</code>, <code>shift</code>).</li>
+          <li><strong>Residual:</strong> ARIMA model for remaining short-term variation.</li>
+          <li><strong>Final prediction:</strong> trend + seasonal + residual.</li>
         </ul>
+
+        <p>
+          Main scripts and assets from the project README:
+        </p>
+        <ul>
+          <li><code>main/forecast_t1_13pr_sum.py</code> for T+1 forecasting.</li>
+          <li><code>main/forecast_t12_13pr_sum.py</code> for recursive T+12 forecasting.</li>
+          <li><code>main/helper.py</code> for support functions.</li>
+          <li><code>jupyter-notebook/CPC_Forecast.ipynb</code> for notebook walkthrough.</li>
+        </ul>
+
+        <p>
+          Reported development-time results: MAPE below 6% across all 13 provinces, and below 4% for 6 provinces
+          (evaluation period: January 2022 to July 2023).
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Privacy Note</h2>
+        <p>
+          This repository version was revised from internal company project code (2023). Confidential paths,
+          private infrastructure details, and sensitive business information were removed.
+        </p>
       </section>
     </article>
   </main>

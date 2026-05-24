@@ -2,10 +2,10 @@ const portfolioData = {
   siteTitle: "Xuan Hoang Le | Applied AI Researcher & Data Scientist",
   navItems: [
     { label: "About", href: "#about" },
-    { label: "Impact", href: "#impact" },
     { label: "Projects", href: "#projects" },
-    { label: "Research", href: "#research" },
     { label: "Experience", href: "#experience" },
+    { label: "Education", href: "#education" },
+    { label: "References", href: "#references" },
     { label: "Contact", href: "#contact" }
   ],
   hero: {
@@ -34,24 +34,6 @@ const portfolioData = {
     { label: "Visa", value: "D2" },
     { label: "Nationality", value: "Vietnamese" }
   ],
-  impactStats: [
-    {
-      value: "< 6%",
-      label: "MAPE across 13 electricity-demand forecasting provinces"
-    },
-    {
-      value: "15%",
-      label: "relative WAPE reduction for 600 restaurants"
-    },
-    {
-      value: "97%",
-      label: "accuracy from deployed face-attendance recognition"
-    },
-    {
-      value: "4.3 / 4.5",
-      label: "M.S. GPA in AI and Robotics at Sejong University"
-    }
-  ],
   about: {
     subtitle:
       "I care about measurable outcomes: not only model quality, but also reliability, deployment fit, and business value.",
@@ -70,158 +52,304 @@ const portfolioData = {
       }
     ]
   },
-  research: {
-    subtitle:
-      "Current work at Sejong University focuses on training-free refinement for GUI grounding and computer-use agents.",
-    projects: [
-      {
-        title: "DART for GUI Grounding",
-        description:
-          "First-author work proposing density-aware adaptive refinement for GUI grounding in computer-use agents.",
-        tags: ["GUI Grounding", "Computer-Use Agents", "Vision-Language Models"],
-        links: [
-          { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
-          { label: "Demo", href: "docs/dart-gui-grounding.html#demo" },
-          { label: "Docs", href: "docs/dart-gui-grounding.html#docs" }
-        ]
-      },
-      {
-        title: "Training-Free ROI Selection",
-        description:
-          "Second-author work using semantic vector fields to select refinement regions without additional training.",
-        tags: ["Training-Free Inference", "Semantic Vector Fields", "ECCV 2026 Submission"],
-        links: [
-          { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
-          { label: "Demo", href: "docs/training-free-roi-selection.html#demo" },
-          { label: "Docs", href: "docs/training-free-roi-selection.html#docs" }
-        ]
-      }
-    ]
-  },
   featuredProjects: [
     {
+      id: "project-cctv-video-filtering",
       title: "VLM-Based CCTV Video Filtering",
-      time: "2024.09 - Present",
-      sortKey: 202409,
+      time: "2025.12 - 2026.02",
+      sortKey: 202512,
       description:
         "Built a CCTV retrieval filtering module with frame sampling and prompt-based inference to separate CCTV from non-CCTV footage.",
       metric: "Integrated into retrieval workflow for faster downstream analysis",
-      tags: ["VLM", "Video Understanding", "Prompt Engineering"],
-      location: { label: "Sejong University VLI Lab" },
+      tags: ["Academic", "VLM", "Video Understanding", "Prompt Engineering"],
+      location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Search-Agent-thangdd_downloader", external: true },
-        { label: "Demo", href: "docs/cctv-video-filtering.html#demo" },
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Filtering", external: true },
         { label: "Docs", href: "docs/cctv-video-filtering.html#docs" }
       ]
     },
     {
+      id: "project-electricity-consumption-forecasting",
       title: "Electricity Consumption Forecasting",
-      time: "2023.04 - 2024.08",
-      sortKey: 202304,
+      time: "2023.05 - 2023.10",
+      sortKey: 202305,
       description:
         "Designed monthly forecasting across 13 provinces using decomposition and statistical time-series modeling.",
       metric: "MAPE below 6% in all provinces, below 4% in six provinces",
-      tags: ["Time Series", "ARIMA", "Forecasting"],
-      location: { label: "FPT Applied Data Science Center" },
+      tags: ["Industry", "Time Series", "ARIMA", "Forecasting"],
+      location: { label: "FPT Applied Data Science Center", href: "#exp-fpt-cads" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting", external: true },
-        { label: "Demo", href: "docs/electricity-consumption-forecasting.html#demo" },
         { label: "Docs", href: "docs/electricity-consumption-forecasting.html#docs" }
       ]
     },
     {
+      id: "project-restaurant-traffic-forecasting",
       title: "Restaurant Traffic Forecasting",
-      time: "2023.04 - 2024.08",
-      sortKey: 202303,
+      time: "2024.01 - 2024.05",
+      sortKey: 202401,
       description:
         "Improved demand prediction for 600 restaurants through data cleaning, feature design, and model strategy updates.",
       metric: "15% relative WAPE reduction",
-      tags: ["Forecasting", "Feature Engineering", "Business Analytics"],
-      location: { label: "FPT Applied Data Science Center" },
+      tags: ["Industry", "Forecasting", "Feature Engineering", "Business Analytics"],
+      location: { label: "FPT Applied Data Science Center", href: "#exp-fpt-cads" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Restaurant-Traffic-Forecasting", external: true },
-        { label: "Demo", href: "docs/restaurant-traffic-forecasting.html#demo" },
         { label: "Docs", href: "docs/restaurant-traffic-forecasting.html#docs" }
       ]
     },
     {
+      id: "project-face-recognition-attendance-system",
       title: "Face Recognition Attendance System",
       time: "2022.06 - 2023.03",
       sortKey: 202206,
       description:
         "Delivered a camera-based attendance automation system using facial embeddings and identity matching.",
       metric: "97% recognition accuracy",
-      tags: ["Face Recognition", "Computer Vision", "Deployment"],
-      location: { label: "VTCODE Company" },
+      tags: ["Industry", "Face Recognition", "Computer Vision", "Deployment"],
+      location: { label: "VTCODE Company", href: "#exp-vtcode" },
       links: [
         { label: "GitHub", href: "https://github.com/lexuanhoang120/Face_Recognition", external: true },
-        { label: "Demo", href: "docs/face-recognition-attendance.html#demo" },
         { label: "Docs", href: "docs/face-recognition-attendance.html#docs" }
       ]
     },
     {
+      id: "project-automated-chicken-classification-system",
       title: "Automated Chicken Classification System",
       time: "2021.01 - 2022.06",
       sortKey: 202101,
       description:
         "Developed an end-to-end mechatronic classification system from image collection to model integration and control design.",
-      tags: ["YOLOv5", "Automation", "Mechatronics"],
-      location: { label: "HCMUT Control and Automation Lab" },
+      tags: ["Academic", "YOLOv5", "Automation", "Mechatronics"],
+      location: { label: "HCMUT Control and Automation Lab", href: "#exp-hcmut-calab" },
       links: [
-        { label: "GitHub", href: "https://github.com/lexuanhoang120/Automated-Chicken-Classification", external: true },
-        { label: "Demo", href: "docs/automated-chicken-classification.html#demo" },
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Thesis-Design-a-system-classifying-chicken-gender", external: true },
         { label: "Docs", href: "docs/automated-chicken-classification.html#docs" }
+      ]
+    },
+    {
+      id: "project-vision-based-communication",
+      title: "Vision-based Communication",
+      time: "2025",
+      sortKey: 202511,
+      description:
+        "Vision-based communication project for reliable visual information transfer in constrained environments.",
+      tags: ["Academic", "Computer Vision", "Communication Systems"],
+      location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Vision-based-Communication", external: true },
+        { label: "Docs", href: "docs/vision-based-communication.html#docs" }
+      ]
+    },
+    {
+      id: "project-log-web-fshop",
+      title: "Log Web FShop Analysis",
+      time: "2024",
+      sortKey: 202404,
+      description:
+        "Web-log analytics project for user behavior and sequence pattern analysis.",
+      tags: ["Industry", "Web Analytics", "Behavior Modeling"],
+      location: { label: "FPT Applied Data Science Center", href: "#exp-fpt-cads" },
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/log-web-fshop", external: true },
+        { label: "Docs", href: "docs/log-web-fshop-analysis.html#docs" }
+      ]
+    },
+    {
+      id: "project-map-linkedin-email",
+      title: "Map LinkedIn Email",
+      time: "2024",
+      sortKey: 202403,
+      description:
+        "Data collection and enrichment utility to map profile/company information with contact datasets.",
+      tags: ["Industry", "Data Pipeline", "Web Scraping"],
+      location: { label: "FPT Applied Data Science Center", href: "#exp-fpt-cads" },
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/map-linkedin-email", external: true },
+        { label: "Docs", href: "docs/map-linkedin-email.html#docs" }
+      ]
+    },
+    {
+      id: "project-revenue-prediction",
+      title: "Revenue Prediction",
+      time: "2023",
+      sortKey: 202309,
+      description:
+        "Revenue forecasting workflow for business planning and operational decision support.",
+      tags: ["Industry", "Forecasting", "Business Analytics"],
+      location: { label: "VTCODE Company", href: "#exp-vtcode" },
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Revenue_Prediction", external: true },
+        { label: "Docs", href: "docs/revenue-prediction.html#docs" }
+      ]
+    },
+    {
+      id: "project-crawl-lyrics-category",
+      title: "Crawl Lyrics Category",
+      time: "2022",
+      sortKey: 202208,
+      description:
+        "Crawler project for collecting and categorizing structured lyric metadata.",
+      tags: ["Industry", "Web Scraping", "Data Processing"],
+      location: { label: "Personal Project", href: "#" },
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Crawl_Lyrics_Category", external: true },
+        { label: "Docs", href: "docs/crawl-lyrics-category.html#docs" }
+      ]
+    },
+    {
+      id: "project-web-face-recognition",
+      title: "Web Face Recognition",
+      time: "2022",
+      sortKey: 202207,
+      description:
+        "Web-based face recognition application prototype integrating browser-facing workflows with model inference.",
+      tags: ["Industry", "Face Recognition", "Web App"],
+      location: { label: "Personal Project", href: "#" },
+      links: [
+        { label: "GitHub", href: "https://github.com/lexuanhoang120/Web_Face_Recognition", external: true },
+        { label: "Docs", href: "docs/web-face-recognition.html#docs" }
       ]
     }
   ],
   experience: [
     {
+      id: "exp-vli-lab",
       period: "2024.09 - Present",
-      title: "Research Assistant · Vision Language Intelligence Laboratory, Sejong University",
-      description:
-        "Researching training-free GUI grounding refinement methods, building VLM-based vision modules, and preparing manuscripts for peer-reviewed venues."
+      position: "Research Assistant",
+      organization: "Vision Language Intelligence Laboratory, Sejong University",
+      organizationLink: "#",
+      location: "Seoul, South Korea",
+      summary:
+        "Researching training-free GUI grounding refinement methods, building VLM-based vision modules, and preparing manuscripts for peer-reviewed venues.",
+      highlights: [
+        "Proposed refinement methods for GUI grounding in computer-use agents.",
+        "Implemented VLM-based CCTV filtering module for retrieval workflows.",
+        "Prepared experiments, analyses, and manuscript drafts for submissions."
+      ],
+      relatedLinks: [
+        { label: "Project: CCTV Video Filtering", href: "#project-cctv-video-filtering" },
+        { label: "Manuscript: DART", href: "#manuscript-dart" },
+        { label: "Manuscript: ROI Selection", href: "#manuscript-roi-selection" }
+      ]
     },
     {
-      period: "2023.04 - 2024.08",
-      title: "Data Scientist · Center of Applied Data Science, FPT Corporation",
-      description:
-        "Led forecasting and analytics projects spanning electricity demand, restaurant traffic, and large-scale customer behavior analysis."
+      id: "exp-fpt-cads",
+      period: "2023.05 - 2024.08",
+      position: "Data Scientist",
+      organization: "Center of Applied Data Science, FPT Corporation",
+      organizationLink: "#",
+      location: "Vietnam",
+      summary:
+        "Led forecasting and analytics projects spanning electricity demand, restaurant traffic, and large-scale customer behavior analysis.",
+      highlights: [
+        "Built monthly electricity forecasting for 13 provinces (MAPE below 6% in all provinces).",
+        "Improved restaurant traffic forecasting for 600 branches with 15% relative WAPE reduction.",
+        "Developed customer behavior analyses from large web logs and sequence modeling."
+      ],
+      relatedLinks: [
+        { label: "Project: Electricity Forecasting", href: "#project-electricity-consumption-forecasting" },
+        { label: "Project: Restaurant Traffic Forecasting", href: "#project-restaurant-traffic-forecasting" },
+        { label: "Manuscript: DART", href: "#manuscript-dart" }
+      ]
     },
     {
+      id: "exp-vtcode",
       period: "2022.06 - 2023.03",
-      title: "Data Scientist · Data Department, VTCODE Company",
-      description:
-        "Deployed face-recognition attendance solutions and built revenue forecasting workflows for F&B operations."
+      position: "Data Scientist",
+      organization: "Data Department, VTCODE Company",
+      organizationLink: "#",
+      location: "Vietnam",
+      summary:
+        "Deployed face-recognition attendance solutions and built revenue forecasting workflows for F&B operations.",
+      highlights: [
+        "Deployed camera-based face-recognition attendance with around 97% accuracy.",
+        "Built branch-level forecasting workflows for F&B revenue planning.",
+        "Processed and integrated multi-source enterprise datasets."
+      ],
+      relatedLinks: [
+        { label: "Project: Face Attendance System", href: "#project-face-recognition-attendance-system" },
+        { label: "Manuscript: ROI Selection", href: "#manuscript-roi-selection" }
+      ]
     },
     {
+      id: "exp-hcmut-calab",
       period: "2021.01 - 2022.06",
-      title: "Research Intern · Control and Automation Laboratory, HCMUT",
-      description:
-        "Designed and evaluated an automated chicken classification system combining deep learning with mechatronic implementation."
+      position: "Research Intern",
+      organization: "Control and Automation Laboratory, HCMUT",
+      organizationLink: "#",
+      location: "Ho Chi Minh City, Vietnam",
+      summary:
+        "Designed and evaluated an automated chicken classification system combining deep learning with mechatronic implementation.",
+      highlights: [
+        "Built image collection and model training workflow for chicken classification.",
+        "Integrated computer vision with mechanical, electrical, and control components.",
+        "Validated end-to-end prototype performance in lab conditions."
+      ],
+      relatedLinks: [
+        { label: "Project: Automated Chicken Classification", href: "#project-automated-chicken-classification-system" },
+        { label: "Manuscript: DART", href: "#manuscript-dart" }
+      ]
     }
   ],
   manuscripts: {
     subtitle: "Current publication pipeline.",
     items: [
       {
-        status: "In Preparation",
+        id: "manuscript-cua-dataset",
+        period: "2026 - Present",
+        status: "In Prep",
         title: "A Dataset for Computer-Use Agents",
-        detail: "First author · Target venue: AAAI 2027"
+        description: "Building and curating a dataset tailored for computer-use agent grounding and interaction tasks.",
+        detail: "First author · Target venue: AAAI 2027",
+        location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
+        tags: ["Academic", "In Prep", "First Author", "AAAI 2027"],
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
+          { label: "Docs", href: "docs/cua-dataset-for-computer-use-agents.html#docs" }
+        ]
       },
       {
+        id: "manuscript-dart",
+        period: "2026",
         status: "Under Review",
         title: "DART: Density-Aware Adaptive Refinement Technique for GUI Grounding in Computer-Use Agents",
-        detail: "First author · Submitted to IEEE Access"
+        description: "Density-aware adaptive refinement method to improve GUI grounding precision for computer-use agents.",
+        detail: "First author · Submitted to IEEE Access",
+        location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
+        tags: ["Academic", "Under Review", "First Author", "IEEE Access"],
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120/Density-Aware-Adaptive-Refinement-Technique", external: true },
+          { label: "Docs", href: "docs/dart-gui-grounding.html#docs" }
+        ]
       },
       {
+        id: "manuscript-roi-selection",
+        period: "2026",
         status: "Under Review",
         title: "Training-Free ROI Selection via Semantic Vector Fields for GUI Grounding",
-        detail: "Second author · Submitted to ECCV 2026"
+        description: "Training-free ROI selection strategy using semantic vector fields to improve refinement efficiency.",
+        detail: "Second author · Submitted to ECCV 2026",
+        location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
+        tags: ["Academic", "Under Review", "Second Author", "ECCV 2026"],
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
+          { label: "Docs", href: "docs/training-free-roi-selection.html#docs" }
+        ]
       },
       {
-        status: "Prior Submission",
+        id: "manuscript-cgar",
+        period: "2026",
+        status: "Rejected",
         title: "CGAR: Confidence-Guided Adaptive Refinement for GUI Grounding",
-        detail: "First author · Previously submitted to CVPR 2026"
+        description: "Confidence-guided adaptive refinement approach for GUI grounding as an earlier method iteration.",
+        detail: "First author · Previously submitted to CVPR 2026",
+        location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
+        tags: ["Academic", "Rejected", "First Author", "CVPR 2026"],
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120/Confidence-Guided-Adaptive-Refinement", external: true },
+          { label: "Docs", href: "docs/cgar-gui-grounding.html#docs" }
+        ]
       }
     ]
   },
@@ -269,15 +397,52 @@ const portfolioData = {
       degree: "Master of Science in Artificial Intelligence and Robotics",
       school: "Sejong University, Seoul, Vietnam",
       period: "2024 - 2026",
-      details: "Advisor: Associate Professor Cheol Jeong. Thesis title: Confidence-Guided Adaptive Refinement Technique for GUI Grounding."
+      advisor: "Associate Professor Cheol Jeong",
+      // details: "Department of Artificial Intelligence and Robotics",
+      thesis: "Confidence-Guided Adaptive Refinement Technique for GUI Grounding",
+      gpa: "4.3 / 4.5"
     },
     {
       degree: "Bachelor of Engineering in Mechatronics Engineering",
       school: "Vietnam National University – Ho Chi Minh University of Technology, Ho Chi Minh City, Vietnam",
       period: "2017 - 2023",
-      details: "PFIEV Program. Thesis title: Analysis and Design of an Automated Chicken Classification System."
+      details: "The Excellent Engineer Training Program (PFIEV)",
+      advisor: "Ph.D Pham Cong Bang",
+      thesis: "Analysis and Design of an Automated Chicken Classification System",
+      gpa: "8.13 / 10"
     }
   ],
+  references: {
+    subtitle: "Professional references available for academic and industry roles.",
+    items: [
+      {
+        name: "Dr. Cheol Jeong",
+        title: "Associate Professor",
+        department: "Department of Artificial Intelligence and Robotics",
+        organization: "Sejong University",
+        location: "Seoul, Korea",
+        phone: "+82 10 6248 7972",
+        email: "cjeong72@gmail.com"
+      },
+      {
+        name: "Dr. Pham Cong Bang",
+        title: "Ph.D., Vice Dean of Mechanical Engineering",
+        department: "Department of Mechanical Engineering",
+        organization: "Ho Chi Minh University of Technology",
+        location: "VNUHCM, Vietnam",
+        phone: "+84 903 686 334",
+        email: "pcbang@hcmut.edu.vn"
+      },
+      {
+        name: "Nam Phuoc Truong",
+        title: "CEO - Director",
+        department: "VTCODE Technology and Science Applications Limited Company",
+        organization: "VTCODE",
+        location: "Binh Thanh District, Ho Chi Minh City, Vietnam",
+        phone: "+84 986 198 731"
+      }
+    ]
+  },
   cv: {
     subtitle: "The uploaded CV is embedded below so recruiters can review it directly on this page.",
     summary: [
