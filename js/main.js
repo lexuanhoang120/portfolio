@@ -110,18 +110,11 @@ const fillAbout = () => {
   renderSectionCards('#about .grid', portfolioData.about.cards);
 };
 
-const fillFeaturedProjects = () => {
-  qs('#projects .section-subtitle').textContent =
-    'A unified view of industry projects and academic research outputs.';
+const fillProjects = () => {
+  qs('#projects .section-subtitle').textContent = portfolioData.projects.subtitle || '';
 
   const projectGrid = qs('#projects .project-grid');
-  const projectItems = portfolioData.featuredProjects.map(item => ({ ...item, itemType: 'project' }));
-  const manuscriptItems = portfolioData.manuscripts.items.map((item, index) => ({
-    ...item,
-    itemType: 'research',
-    sortKey: 202600 - index
-  }));
-  const sortedProjects = [...projectItems, ...manuscriptItems].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
+  const sortedProjects = [...portfolioData.projects.items].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
 
   sortedProjects.forEach(project => {
     const card = document.createElement('article');
@@ -143,7 +136,7 @@ const fillFeaturedProjects = () => {
 
     const time = document.createElement('span');
     time.className = 'project-time';
-    time.textContent = project.period || project.time || '';
+    time.textContent = project.period || '';
     meta.appendChild(time);
 
     if (project.location?.label) {
@@ -164,7 +157,7 @@ const fillFeaturedProjects = () => {
     heading.textContent = project.title;
 
     const description = document.createElement('p');
-    description.textContent = project.description || project.detail || '';
+    description.textContent = project.description || '';
 
     card.append(meta, heading, description);
 
@@ -220,6 +213,10 @@ const fillExperience = () => {
         organizationLink.className = 'experience-org-link';
         organizationLink.href = item.organizationLink;
         organizationLink.textContent = item.organization;
+        if (/^https?:\/\//.test(item.organizationLink)) {
+          organizationLink.target = '_blank';
+          organizationLink.rel = 'noreferrer';
+        }
         meta.appendChild(organizationLink);
       } else {
         meta.appendChild(document.createTextNode(item.organization));
@@ -303,9 +300,6 @@ const fillEducation = () => {
     const schoolPeriod = document.createTextNode(` - ${item.period}`);
     school.append(schoolName, schoolPeriod);
 
-    const details = document.createElement('p');
-    details.textContent = item.details || '';
-
     card.append(heading, school);
 
     if (item.advisor) {
@@ -314,7 +308,11 @@ const fillEducation = () => {
       card.appendChild(advisor);
     }
 
-    card.appendChild(details);
+    if (item.details) {
+      const details = document.createElement('p');
+      details.textContent = item.details;
+      card.appendChild(details);
+    }
 
     if (item.thesis) {
       const thesis = document.createElement('p');
@@ -436,7 +434,7 @@ const createSections = () => {
   fillHero();
   fillProfile();
   fillAbout();
-  fillFeaturedProjects();
+  fillProjects();
   fillExperience();
   fillCv();
   fillEducation();
