@@ -87,29 +87,6 @@ const fillProfile = () => {
   });
 };
 
-const renderSectionCards = (containerSelector, cards) => {
-  const container = qs(containerSelector);
-
-  cards.forEach(card => {
-    const element = document.createElement('article');
-    element.className = 'card reveal';
-
-    const heading = document.createElement('h3');
-    heading.textContent = card.title;
-
-    const description = document.createElement('p');
-    description.textContent = card.description;
-
-    element.append(heading, description);
-    container.appendChild(element);
-  });
-};
-
-const fillAbout = () => {
-  qs('#about .section-subtitle').textContent = portfolioData.about.subtitle;
-  renderSectionCards('#about .grid', portfolioData.about.cards);
-};
-
 const fillProjects = () => {
   qs('#projects .section-subtitle').textContent = portfolioData.projects.subtitle || '';
 
@@ -392,11 +369,6 @@ const fillSkills = () => {
   });
 };
 
-const fillCredentials = () => {
-  qs('#credentials .section-subtitle').textContent = portfolioData.credentials.subtitle;
-  renderSectionCards('#credentials .grid', portfolioData.credentials.cards);
-};
-
 const fillContact = () => {
   qs('#contact .section-subtitle').textContent = portfolioData.contact.subtitle;
 
@@ -433,13 +405,11 @@ const createSections = () => {
   fillNav();
   fillHero();
   fillProfile();
-  fillAbout();
   fillProjects();
   fillExperience();
   fillCv();
   fillEducation();
   fillSkills();
-  fillCredentials();
   fillReferences();
   fillContact();
   initRevealAnimation();

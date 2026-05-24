@@ -1,14 +1,10 @@
 const portfolioData = {
   siteTitle: "Xuan Hoang Le | Applied AI Researcher & Data Scientist",
   navItems: [
-    { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
     { label: "Education", href: "#education" },
-    { label: "CV", href: "#cv" },
-    { label: "Skills", href: "#skills" },
-    { label: "References", href: "#references" },
-    { label: "Contact", href: "#contact" }
+    { label: "References", href: "#references" }
   ],
   hero: {
     eyebrow: "AI Researcher · Data Scientist",
@@ -55,7 +51,7 @@ const portfolioData = {
       {
         id: "project-cua-dataset",
         title: "A Dataset for Computer-Use Agents",
-        period: "2026.05 - Present",
+        period: "2026.06 - Present",
         sortKey: 202606,
         description: "Building and curating a dataset tailored for computer-use agent grounding and interaction tasks.",
         metric: "First Author · Target venue: AAAI 2027",
@@ -69,8 +65,8 @@ const portfolioData = {
       {
         id: "project-dart",
         title: "DART: Density-Aware Adaptive Refinement Technique for GUI Grounding in Computer-Use Agents",
-        period: "2026.04",
-        sortKey: 202604,
+        period: "2026.05",
+        sortKey: 202605,
         description: "Density-aware adaptive refinement method to improve GUI grounding precision for computer-use agents.",
         metric: "First Author · Submitted to IEEE Access",
         tags: ["Academic", "Under Review", "First Author", "IEEE Access"],
@@ -83,8 +79,8 @@ const portfolioData = {
       {
         id: "project-roi-selection",
         title: "Training-Free ROI Selection via Semantic Vector Fields for GUI Grounding",
-        period: "2026.01",
-        sortKey: 202601,
+        period: "2026.04",
+        sortKey: 202604,
         description: "Training-free ROI selection strategy using semantic vector fields to improve refinement efficiency.",
         metric: "Second Author · Submitted to ECCV 2026",
         tags: ["Academic", "Under Review", "Second Author", "ECCV 2026"],
@@ -95,25 +91,10 @@ const portfolioData = {
         ]
       },
       {
-        id: "project-cctv-video-filtering",
-        title: "VLM-Based CCTV Video Filtering",
-        period: "2025.12 - 2026.02",
-        sortKey: 202512,
-        description:
-          "Built a CCTV retrieval filtering module with frame sampling and prompt-based inference to separate CCTV from non-CCTV footage.",
-        // metric: "Integrated into retrieval workflow for faster downstream analysis",
-        tags: ["Industry", "VLM", "Video Understanding", "Prompt Engineering"],
-        location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
-        links: [
-          { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Filtering", external: true },
-          { label: "Docs", href: "docs/2025_12-cctv-video-filtering.html#docs" }
-        ]
-      },
-      {
         id: "project-cgar",
         title: "CGAR: Confidence-Guided Adaptive Refinement for GUI Grounding",
-        period: "2025.11",
-        sortKey: 202511,
+        period: "2026.03",
+        sortKey: 202603,
         description: "Confidence-guided adaptive refinement approach for GUI grounding as an earlier method iteration.",
         metric: "First Author · Previously submitted to CVPR 2026",
         tags: ["Academic", "Rejected", "First Author", "CVPR 2026"],
@@ -124,9 +105,23 @@ const portfolioData = {
         ]
       },
       {
+        id: "project-cctv-video-filtering",
+        title: "VLM-Based CCTV Video Filtering",
+        period: "2025.12 - 2026.02",
+        sortKey: 202512,
+        description:
+          "Built a CCTV retrieval filtering module with frame sampling and prompt-based inference to separate CCTV from non-CCTV footage as a laboratory-assigned internship task with PIA Space.",
+        tags: ["Industry", "VLM", "Video Understanding", "Prompt Engineering"],
+        location: { label: "PIA Space (Lab Internship Task)", href: "https://www.pia.space/", external: true },
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120/CCTV-Video-Filtering", external: true },
+          { label: "Docs", href: "docs/2025_12-cctv-video-filtering.html#docs" }
+        ]
+      },
+      {
         id: "project-vision-based-communication",
         title: "Vision-based Communication",
-        period: "2025",
+        period: "2025.11",
         sortKey: 202511,
         description:
           "Vision-based communication project for reliable visual information transfer in constrained environments.",
@@ -140,7 +135,7 @@ const portfolioData = {
       {
         id: "project-log-web-fshop",
         title: "Log Web FShop Analysis",
-        period: "2024",
+        period: "2024.04",
         sortKey: 202404,
         description:
           "Web-log analytics project for user behavior and sequence pattern analysis.",
@@ -154,7 +149,7 @@ const portfolioData = {
       {
         id: "project-map-linkedin-email",
         title: "Map LinkedIn Email",
-        period: "2024",
+        period: "2024.03",
         sortKey: 202403,
         description:
           "Data collection and enrichment utility to map profile/company information with contact datasets.",
@@ -163,6 +158,21 @@ const portfolioData = {
         links: [
           { label: "GitHub", href: "https://github.com/lexuanhoang120/map-linkedin-email", external: true },
           { label: "Docs", href: "docs/2024_03-map-linkedin-email.html#docs" }
+        ]
+      },
+      {
+        id: "project-crawling-ggmap",
+        title: "Google Maps Business Scraper",
+        period: "2024.02",
+        sortKey: 202402,
+        description:
+          "Built a location-data crawling pipeline from Google Maps sources for business profiling and downstream analytics.",
+        metric: "709K+ rows crawled · 183K+ unique phone numbers extracted",
+          tags: ["Industry", "Web Scraping", "Data Pipeline", "Geo Data"],
+        location: { label: "CADS - FPT Corporation", href: "#exp-fpt-cads" },
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120/Google-Maps-Business-Scraper", external: true },
+          { label: "Docs", href: "docs/2024_02-crawling-ggmap.html#docs" }
         ]
       },
       {
@@ -181,38 +191,10 @@ const portfolioData = {
         ]
       },
       {
-        id: "project-web-face-recognition",
-        title: "Web Face Recognition",
-        period: "2023.10",
-        sortKey: 202310,
-        description:
-          "Web-based face recognition application prototype integrating browser-facing workflows with model inference.",
-        tags: ["Industry", "Face Recognition", "Web App"],
-        location: { label: "VTCODE Company", href: "#exp-vtcode" },
-        links: [
-          { label: "GitHub", href: "https://github.com/lexuanhoang120/Web_Face_Recognition", external: true },
-          { label: "Docs", href: "docs/2022_07-web-face-recognition.html#docs" }
-        ]
-      },
-      {
-        id: "project-crawl-lyrics-category",
-        title: "Crawl Lyrics Category",
-        period: "2023.08",
-        sortKey: 202308,
-        description:
-          "Crawler project for collecting and categorizing structured lyric metadata.",
-        tags: ["Industry", "Web Scraping", "Data Processing"],
-        location: { label: "VTCODE Company", href: "#exp-vtcode" },
-        links: [
-          { label: "GitHub", href: "https://github.com/lexuanhoang120/Crawl_Lyrics_Category", external: true },
-          { label: "Docs", href: "docs/2022_08-crawl-lyrics-category.html#docs" }
-        ]
-      },
-      {
         id: "project-revenue-prediction",
         title: "Revenue Prediction",
-        period: "2023.06 - 2023.10",
-        sortKey: 202306,
+        period: "2022.06 - 2022.10",
+        sortKey: 202206,
         description:
           "Revenue forecasting workflow for business planning and operational decision support.",
         tags: ["Industry", "Forecasting", "Business Analytics"],
@@ -235,6 +217,34 @@ const portfolioData = {
         links: [
           { label: "GitHub", href: "https://github.com/lexuanhoang120/Electricity-Consumption-Forecasting", external: true },
           { label: "Docs", href: "docs/2023_05-electricity-consumption-forecasting.html#docs" }
+        ]
+      },
+      {
+        id: "project-crawl-lyrics-category",
+        title: "Crawl Lyrics Category",
+        period: "2022.08",
+        sortKey: 202208,
+        description:
+          "Crawler project for collecting and categorizing structured lyric metadata.",
+        tags: ["Industry", "Web Scraping", "Data Processing"],
+        location: { label: "VTCODE Company", href: "#exp-vtcode" },
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120/Crawl_Lyrics_Category", external: true },
+          { label: "Docs", href: "docs/2022_08-crawl-lyrics-category.html#docs" }
+        ]
+      },
+      {
+        id: "project-web-face-recognition",
+        title: "Web Face Recognition",
+        period: "2022.10",
+        sortKey: 202210,
+        description:
+          "Web-based face recognition application prototype integrating browser-facing workflows with model inference.",
+        tags: ["Industry", "Face Recognition", "Web App"],
+        location: { label: "VTCODE Company", href: "#exp-vtcode" },
+        links: [
+          { label: "GitHub", href: "https://github.com/lexuanhoang120/Web_Face_Recognition", external: true },
+          { label: "Docs", href: "docs/2022_07-web-face-recognition.html#docs" }
         ]
       },
       {
@@ -277,14 +287,16 @@ const portfolioData = {
       organizationLink: "https://sites.google.com/view/vlilab",
       location: "Seoul, South Korea",
       summary:
-        "Researching training-free GUI grounding refinement methods, building VLM-based vision modules, and preparing peer-reviewed academic outputs.",
+        "Researching training-free GUI grounding methods, vision-based systems, and VLM modules while contributing to end-to-end research delivery.",
       highlights: [
-        "Proposed refinement methods for GUI grounding in computer-use agents.",
-        "Implemented VLM-based CCTV filtering module for retrieval workflows.",
-        "Prepared experiments, analyses, and full paper submissions for major venues."
+        "Researched training-free methods to improve GUI grounding and proposed confidence-guided adaptive refinement that leverages spatial signals from attention maps for stopping and cropping.",
+        "Implemented a VLM-based video filtering module within a CCTV retrieval system, using frame sampling and prompt-based inference to classify videos as CCTV or non-CCTV footage.",
+        "Developed a vision-based system for data transmission from roadside stations to moving vehicles.",
+        "Contributed to research activities, data annotation, simulation, and manuscript preparation."
       ],
       relatedLinks: [
         { label: "Project: CCTV Video Filtering", href: "#project-cctv-video-filtering" },
+        { label: "Project: Vision-based Communication", href: "#project-vision-based-communication" },
         { label: "Project: DART", href: "#project-dart" },
         { label: "Project: ROI Selection", href: "#project-roi-selection" }
       ]
@@ -297,16 +309,19 @@ const portfolioData = {
       organizationLink: "https://fpt.com/en/",
       location: "Vietnam",
       summary:
-        "Led forecasting and analytics projects spanning electricity demand, restaurant traffic, and large-scale customer behavior analysis.",
+        "Led forecasting, customer analytics, and data-enrichment initiatives at CADS-FPT across time-series, behavior modeling, and external data pipelines.",
       highlights: [
-        "Built monthly electricity forecasting for 13 provinces (MAPE below 6% in all provinces).",
-        "Improved restaurant traffic forecasting for 600 branches with 15% relative WAPE reduction.",
-        "Developed customer behavior analyses from large web logs and sequence modeling."
+        "Built monthly electricity-consumption forecasting models for 13 Vietnamese provinces using trend, seasonal, and residual decomposition with linear, statistical, and ARIMA-based methods, achieving MAPE below 6% across all provinces and below 4% in six provinces.",
+        "Improved a daily customer-traffic forecasting model for 600 restaurants by enhancing preprocessing, feature engineering, and modeling strategies, achieving a 15% relative reduction in WAPE.",
+        "Analyzed large-scale raw web-log data to develop anonymous customer personas, model user journeys, and predict user touchpoints using Markov sequence analysis.",
+        "Automated web scraping pipelines to collect and enrich external data from LinkedIn, Google Maps, and Chotot, supporting exploratory analysis and business recommendations."
       ],
       relatedLinks: [
         { label: "Project: Electricity Forecasting", href: "#project-electricity-consumption-forecasting" },
         { label: "Project: Restaurant Traffic Forecasting", href: "#project-restaurant-traffic-forecasting" },
-        { label: "Project: Map LinkedIn Email", href: "#project-map-linkedin-email" }
+        { label: "Project: Log Web FShop Analysis", href: "#project-log-web-fshop" },
+        { label: "Project: Map LinkedIn Email", href: "#project-map-linkedin-email" },
+        { label: "Project: Google Maps Business Scraper", href: "#project-crawling-ggmap" }
       ]
     },
     {
@@ -336,11 +351,11 @@ const portfolioData = {
       organizationLink: "https://hcmut.edu.vn/en",
       location: "Ho Chi Minh City, Vietnam",
       summary:
-        "Designed and evaluated an automated chicken classification system combining deep learning with mechatronic implementation.",
+        "Designed an automated chicken classification system by collecting farm image data, developing a classification model, and designing mechanical, electrical, and control components for the system.",
       highlights: [
         "Built image collection and model training workflow for chicken classification.",
         "Integrated computer vision with mechanical, electrical, and control components.",
-        "Validated end-to-end prototype performance in lab conditions."
+        // "Validated end-to-end prototype performance in lab conditions."
       ],
       relatedLinks: [
         { label: "Project: Automated Chicken Classification", href: "#project-automated-chicken-classification-system" }
@@ -367,25 +382,18 @@ const portfolioData = {
       title: "Tools",
       description:
         "MongoDB, Git, Jupyter Notebook, Google Colab, SolidWorks, AutoCAD, and Proteus."
+    },
+    {
+      title: "Languages",
+      description:
+        "Vietnamese (native), English (working proficiency, TOEIC 650/990, New TEPS 350/600)."
+    },
+    {
+      title: "Certifications",
+      description:
+        "Coursera ML/DL Specializations, NVIDIA Jetson Nano AI courses, freeCodeCamp Python programs."
     }
   ],
-  credentials: {
-    subtitle: "Additional profile highlights.",
-    cards: [
-      {
-        title: "Education",
-        description: "M.S. in AI and Robotics, Sejong University (GPA 4.3/4.5). B.E. in Mechatronics Engineering, HCMUT (GPA 8.13/10)."
-      },
-      {
-        title: "Languages",
-        description: "Vietnamese (native), English (working proficiency, TOEIC 650/990, New TEPS 350/600)."
-      },
-      {
-        title: "Certifications",
-        description: "Coursera ML/DL Specializations, NVIDIA Jetson Nano AI courses, freeCodeCamp Python programs."
-      }
-    ]
-  },
   education: [
     {
       degree: "Master of Science in Artificial Intelligence and Robotics",
