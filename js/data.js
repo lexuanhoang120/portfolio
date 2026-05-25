@@ -65,8 +65,8 @@ const portfolioData = {
       {
         id: "project-dart",
         title: "DART: Density-Aware Adaptive Refinement Technique for GUI Grounding in Computer-Use Agents",
-        period: "2026.05",
-        sortKey: 202605,
+        period: "2026.03",
+        sortKey: 202603,
         description: "Density-aware adaptive refinement method to improve GUI grounding precision for computer-use agents.",
         metric: "First Author · Submitted to IEEE Access",
         tags: ["Academic", "Under Review", "First Author", "IEEE Access"],
@@ -79,8 +79,8 @@ const portfolioData = {
       {
         id: "project-roi-selection",
         title: "Training-Free ROI Selection via Semantic Vector Fields for GUI Grounding",
-        period: "2026.04",
-        sortKey: 202604,
+        period: "2025.12",
+        sortKey: 202512,
         description: "Training-free ROI selection strategy using semantic vector fields to improve refinement efficiency.",
         metric: "Second Author · Submitted to ECCV 2026",
         tags: ["Academic", "Under Review", "Second Author", "ECCV 2026"],
@@ -93,8 +93,8 @@ const portfolioData = {
       {
         id: "project-cgar",
         title: "CGAR: Confidence-Guided Adaptive Refinement for GUI Grounding",
-        period: "2026.03",
-        sortKey: 202603,
+        period: "2025.09",
+        sortKey: 202509,
         description: "Confidence-guided adaptive refinement approach for GUI grounding as an earlier method iteration.",
         metric: "First Author · Previously submitted to CVPR 2026",
         tags: ["Academic", "Rejected", "First Author", "CVPR 2026"],
@@ -121,8 +121,8 @@ const portfolioData = {
       {
         id: "project-vision-based-communication",
         title: "Vision-based Communication",
-        period: "2025.11",
-        sortKey: 202511,
+        period: "2024.11",
+        sortKey: 202411,
         description:
           "Vision-based communication project for reliable visual information transfer in constrained environments.",
         tags: ["Academic", "Computer Vision", "Communication Systems"],
@@ -149,8 +149,8 @@ const portfolioData = {
       {
         id: "project-map-linkedin-email",
         title: "Map LinkedIn Email",
-        period: "2024.03",
-        sortKey: 202403,
+        period: "2024.12",
+        sortKey: 202412,
         description:
           "Data collection and enrichment utility to map profile/company information with contact datasets.",
         tags: ["Industry", "Data Pipeline", "Web Scraping"],
@@ -386,7 +386,7 @@ const portfolioData = {
     {
       title: "Languages",
       description:
-        "Vietnamese (native), English (working proficiency, TOEIC 650/990, New TEPS 350/600)."
+        "Vietnamese (native), English (intermediate, TOEIC 650/990, New TEPS 350/600), Korean (basic, beginner)."
     },
     {
       title: "Certifications",
@@ -454,8 +454,8 @@ const portfolioData = {
       { label: "Availability", value: "From July 2026" }
     ],
     actions: [
-      { label: "Open CV PDF", href: "docs/HOANG_CV.pdf", external: true, primary: true },
-      { label: "Download CV PDF", href: "docs/HOANG_CV.pdf", external: true }
+      // { label: "Open CV PDF", href: "docs/HOANG_CV.pdf", external: true, primary: true },
+      // { label: "Download CV PDF", href: "docs/HOANG_CV.pdf", external: true }
     ]
   },
   contact: {
