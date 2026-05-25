@@ -93,7 +93,8 @@ a {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  position: relative;
   min-height: 72px;
   gap: 18px;
 }
@@ -104,6 +105,9 @@ nav {
 }
 
 .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 1rem;
   font-size: 0.9rem;
@@ -266,19 +270,6 @@ h1 {
   overflow: hidden;
   aspect-ratio: 4 / 5;
   margin-bottom: 14px;
-}
-
-.profile-photo::after {
-  content: "Open for 2026 opportunities";
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  padding: 5px 9px;
-  border-radius: 7px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #fff;
-  background: rgba(23, 32, 49, 0.84);
 }
 
 .profile-photo img {

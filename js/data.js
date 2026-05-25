@@ -14,7 +14,8 @@ const portfolioData = {
     highlights: [],
     actions: [
       { label: "Email Me", href: "mailto:lexuanhoang120@gmail.com", primary: true },
-      { label: "View CV", href: "#cv" },
+      { label: "Curriculum Vitae (CV)", href: "docs/HOANG_CV.pdf", external: true },
+      { label: "Motivation Letter", href: "docs/HOANG_Motivation_Letter.pdf", external: true },
       { label: "GitHub", href: "https://github.com/lexuanhoang120", external: true },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/xuan-hoang1999/", external: true }
     ]
@@ -46,7 +47,7 @@ const portfolioData = {
     ]
   },
   projects: {
-    subtitle: "A unified view of industry projects and academic research outputs.",
+    // subtitle: "A unified view of industry projects and academic research outputs.",
     items: [
       {
         id: "project-cua-dataset",
@@ -65,8 +66,8 @@ const portfolioData = {
       {
         id: "project-dart",
         title: "DART: Density-Aware Adaptive Refinement Technique for GUI Grounding in Computer-Use Agents",
-        period: "2026.03",
-        sortKey: 202603,
+        period: "2026.05",
+        sortKey: 202605,
         description: "Density-aware adaptive refinement method to improve GUI grounding precision for computer-use agents.",
         metric: "First Author · Submitted to IEEE Access",
         tags: ["Academic", "Under Review", "First Author", "IEEE Access"],
@@ -79,8 +80,8 @@ const portfolioData = {
       {
         id: "project-roi-selection",
         title: "Training-Free ROI Selection via Semantic Vector Fields for GUI Grounding",
-        period: "2025.12",
-        sortKey: 202512,
+        period: "2026.04",
+        sortKey: 202604,
         description: "Training-free ROI selection strategy using semantic vector fields to improve refinement efficiency.",
         metric: "Second Author · Submitted to ECCV 2026",
         tags: ["Academic", "Under Review", "Second Author", "ECCV 2026"],
@@ -93,8 +94,8 @@ const portfolioData = {
       {
         id: "project-cgar",
         title: "CGAR: Confidence-Guided Adaptive Refinement for GUI Grounding",
-        period: "2025.09",
-        sortKey: 202509,
+        period: "2026.03",
+        sortKey: 202603,
         description: "Confidence-guided adaptive refinement approach for GUI grounding as an earlier method iteration.",
         metric: "First Author · Previously submitted to CVPR 2026",
         tags: ["Academic", "Rejected", "First Author", "CVPR 2026"],
@@ -121,8 +122,8 @@ const portfolioData = {
       {
         id: "project-vision-based-communication",
         title: "Vision-based Communication",
-        period: "2024.11",
-        sortKey: 202411,
+        period: "2025.11",
+        sortKey: 202511,
         description:
           "Vision-based communication project for reliable visual information transfer in constrained environments.",
         tags: ["Academic", "Computer Vision", "Communication Systems"],
@@ -134,12 +135,13 @@ const portfolioData = {
       },
       {
         id: "project-log-web-fshop",
-        title: "Log Web FShop Analysis",
+        title: "Log Web Analysis",
         period: "2024.04",
         sortKey: 202404,
         description:
           "Web-log analytics project for user behavior and sequence pattern analysis.",
         tags: ["Industry", "Web Analytics", "Behavior Modeling"],
+        metric: "10M+ raw log records analyzed",
         location: { label: "CADS - FPT Corporation", href: "#exp-fpt-cads" },
         links: [
           { label: "GitHub", href: "https://github.com/lexuanhoang120/log-web-fshop", external: true },
@@ -149,8 +151,8 @@ const portfolioData = {
       {
         id: "project-map-linkedin-email",
         title: "Map LinkedIn Email",
-        period: "2024.12",
-        sortKey: 202412,
+        period: "2024.03",
+        sortKey: 202403,
         description:
           "Data collection and enrichment utility to map profile/company information with contact datasets.",
         tags: ["Industry", "Data Pipeline", "Web Scraping"],
@@ -167,7 +169,7 @@ const portfolioData = {
         sortKey: 202402,
         description:
           "Built a location-data crawling pipeline from Google Maps sources for business profiling and downstream analytics.",
-        metric: "709K+ rows crawled · 183K+ unique phone numbers extracted",
+        metric: "709K+ rows crawled, 183K+ unique phone numbers extracted",
           tags: ["Industry", "Web Scraping", "Data Pipeline", "Geo Data"],
         location: { label: "CADS - FPT Corporation", href: "#exp-fpt-cads" },
         links: [
@@ -319,7 +321,7 @@ const portfolioData = {
       relatedLinks: [
         { label: "Project: Electricity Forecasting", href: "#project-electricity-consumption-forecasting" },
         { label: "Project: Restaurant Traffic Forecasting", href: "#project-restaurant-traffic-forecasting" },
-        { label: "Project: Log Web FShop Analysis", href: "#project-log-web-fshop" },
+        { label: "Project: Log Web Analysis", href: "#project-log-web-fshop" },
         { label: "Project: Map LinkedIn Email", href: "#project-map-linkedin-email" },
         { label: "Project: Google Maps Business Scraper", href: "#project-crawling-ggmap" }
       ]
@@ -415,7 +417,7 @@ const portfolioData = {
     }
   ],
   references: {
-    subtitle: "Professional references available for academic and industry roles.",
+    // subtitle: "Professional references available for academic and industry roles.",
     items: [
       {
         name: "Dr. Cheol Jeong",
@@ -446,7 +448,7 @@ const portfolioData = {
     ]
   },
   cv: {
-    subtitle: "The uploaded CV is embedded below so recruiters can review it directly on this page.",
+    // subtitle: "The uploaded CV is embedded below so recruiters can review it directly on this page.",
     summary: [
       { label: "Full name", value: "Xuan Hoang Le" },
       { label: "Location", value: "Seoul, South Korea" },
@@ -454,8 +456,8 @@ const portfolioData = {
       { label: "Availability", value: "From July 2026" }
     ],
     actions: [
-      // { label: "Open CV PDF", href: "docs/HOANG_CV.pdf", external: true, primary: true },
-      // { label: "Download CV PDF", href: "docs/HOANG_CV.pdf", external: true }
+      { label: "Open Curriculum Vitae (CV)", href: "docs/HOANG_CV.pdf", external: true, primary: true },
+      { label: "Open Motivation Letter", href: "docs/HOANG_Motivation_Letter.pdf", external: true }
     ]
   },
   contact: {
