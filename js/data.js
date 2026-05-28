@@ -315,7 +315,7 @@ const portfolioData = {
       highlights: [
         "Built monthly electricity-consumption forecasting models for 13 Vietnamese provinces using trend, seasonal, and residual decomposition with linear, statistical, and ARIMA-based methods, achieving MAPE below 6% across all provinces and below 4% in six provinces.",
         "Improved a daily customer-traffic forecasting model for 600 restaurants by enhancing preprocessing, feature engineering, and modeling strategies, achieving a 15% relative reduction in WAPE.",
-        "Analyzed large-scale raw web-log data to develop anonymous customer personas, model user journeys, and predict user touchpoints using Markov sequence analysis.",
+        git "Analyzed large-scale raw web-log data to develop anonymous customer personas, model user journeys, and predict user touchpoints using Markov sequence analysis.",
         "Automated web scraping pipelines to collect and enrich external data from LinkedIn, Google Maps, and Chotot, supporting exploratory analysis and business recommendations."
       ],
       relatedLinks: [
