@@ -125,7 +125,7 @@ const portfolioData = {
         period: "2025.11",
         sortKey: 202511,
         description:
-          "Vision-based communication project for reliable visual information transfer in constrained environments.",
+          "Vision-based communication project for reliable visual information transfer in constrained environments. Due to the sensitive nature of this project, the source code is not publicly available.",
         tags: ["Academic", "Computer Vision", "Communication Systems"],
         location: { label: "Sejong University VLI Lab", href: "#exp-vli-lab" },
         links: [
@@ -315,7 +315,7 @@ const portfolioData = {
       highlights: [
         "Built monthly electricity-consumption forecasting models for 13 Vietnamese provinces using trend, seasonal, and residual decomposition with linear, statistical, and ARIMA-based methods, achieving MAPE below 6% across all provinces and below 4% in six provinces.",
         "Improved a daily customer-traffic forecasting model for 600 restaurants by enhancing preprocessing, feature engineering, and modeling strategies, achieving a 15% relative reduction in WAPE.",
-        git "Analyzed large-scale raw web-log data to develop anonymous customer personas, model user journeys, and predict user touchpoints using Markov sequence analysis.",
+        "Analyzed large-scale raw web-log data to develop anonymous customer personas, model user journeys, and predict user touchpoints using Markov sequence analysis.",
         "Automated web scraping pipelines to collect and enrich external data from LinkedIn, Google Maps, and Chotot, supporting exploratory analysis and business recommendations."
       ],
       relatedLinks: [
