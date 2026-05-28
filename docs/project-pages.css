@@ -216,7 +216,8 @@ th {
 }
 
 .media-block img,
-.media-block video {
+.media-block video,
+.media-block iframe {
   width: 100%;
   border-radius: 14px;
   display: block;
