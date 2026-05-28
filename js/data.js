@@ -139,9 +139,9 @@ const portfolioData = {
         period: "2024.04",
         sortKey: 202404,
         description:
-          "Web-log analytics project for user behavior and sequence pattern analysis.",
+          "Web-log analytics project for user behavior and sequence pattern analysis. Raw web logs were collected from https://fptshop.com.vn/.",
         tags: ["Industry", "Web Analytics", "Behavior Modeling"],
-        metric: "10M+ raw log records analyzed",
+        metric: "95M+ raw log records analyzed",
         location: { label: "CADS - FPT Corporation", href: "#exp-fpt-cads" },
         links: [
           { label: "GitHub", href: "https://github.com/lexuanhoang120/log-web-fshop", external: true },

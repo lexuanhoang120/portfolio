@@ -16,26 +16,240 @@
         Web log analysis project for customer behavior modeling, path analysis, and interaction insights to support
         business decision-making.
       </p>
+      <p>
+        <strong>Note:</strong> This is a summary from the internal report for the project:
+        <em>Web Behavior Analytics</em>. It was done at CADS - FPT Corporation.
+      </p>
+      <p>
+        Raw web logs for this analysis were collected from
+        <a href="https://fptshop.com.vn/" target="_blank" rel="noreferrer">https://fptshop.com.vn/</a>.
+      </p>
 
       <div class="actions">
         <a class="btn primary" href="https://github.com/lexuanhoang120/log-web-fshop" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn" href="#docs">Go to Approach</a>
+        <a class="btn" href="#visuals">Visuals</a>
+        <a class="btn" href="#overview">Overview</a>
+        <a class="btn" href="#methodology">Methodology</a>
+        <a class="btn" href="#insights">Insights</a>
+        <a class="btn" href="#recommendations">Recommendations</a>
       </div>
 
-      <section id="docs" class="section">
-        <h2>Approach</h2>
+      <section id="visuals" class="section">
+        <h2>Visuals</h2>
+        <!-- <p>The following figures are from <code>log-web-fshop/docs</code> in the repository.</p> -->
+        <div class="demo-gallery">
+          <figure>
+            <img
+              src="assets/log-web-fshop/methodology.png"
+              alt="Methodology diagram"
+              loading="lazy"
+            />
+            <figcaption>Methodology diagram.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/log-web-fshop/processing-flow.png"
+              alt="Processing flow chart"
+              loading="lazy"
+            />
+            <figcaption>Processing flow.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/log-web-fshop/data-processing-pipeline.png"
+              alt="Data processing pipeline"
+              loading="lazy"
+            />
+            <figcaption>Data processing pipeline.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/log-web-fshop/journey.png"
+              alt="Customer journey mapping figure"
+              loading="lazy"
+            />
+            <figcaption>Journey mapping.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/log-web-fshop/top-15-group-action.png"
+              alt="Top 15 group actions chart"
+              loading="lazy"
+            />
+            <figcaption>Top 15 group actions.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/log-web-fshop/top-5-most-popular-action.png"
+              alt="Top 5 most popular actions chart"
+              loading="lazy"
+            />
+            <figcaption>Top 5 most popular actions.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/log-web-fshop/the-percentage-of-actions.png"
+              alt="Percentage of actions chart"
+              loading="lazy"
+            />
+            <figcaption>Percentage of actions.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <h2>Project Overview</h2>
+        <p>
+          Conducted an end-to-end web behavior analytics project for a large-scale e-commerce platform to understand
+          customer intent, identify drop-off behavior, and propose real-time personalization opportunities.
+        </p>
+        <p>
+          The project combined market research, clickstream analysis, customer journey mapping, behavioral segmentation,
+          and exit-intent prediction. The analysis was based on approximately 96M raw web behavior logs collected over
+          a 3-month period and transformed into structured user journeys for session-level analysis and predictive use cases.
+        </p>
+      </section>
+
+      <section id="business-context" class="section">
+        <h2>Business Context</h2>
+        <p>The project focused on three questions:</p>
         <ul>
-          <li>Web-log ingestion and normalization pipeline.</li>
-          <li>Session/user-level feature construction.</li>
-          <li>Behavior flow and sequence analysis outputs.</li>
+          <li>Which users are likely to purchase?</li>
+          <li>Which users are likely to leave without converting?</li>
+          <li>What real-time action should be triggered based on user intent?</li>
+        </ul>
+        <p>Target business applications included:</p>
+        <ul>
+          <li>In-session purchase intent prediction and exit-risk detection.</li>
+          <li>Channel, campaign, and category conversion diagnostics.</li>
+          <li>Personalized offers, exit popups, cross-sell, upsell, and recommendation triggers.</li>
+          <li>Selective intervention instead of broad promotions to protect margin.</li>
+          <li>Journey-driven UX and navigation improvements.</li>
+        </ul>
+      </section>
+
+      <section id="contribution" class="section">
+        <h2>My Contribution</h2>
+        <ul>
+          <li>Reviewed market research and case studies on clickstream analytics, in-session marketing, and exit-intent prediction.</li>
+          <li>Defined analytics directions for conversion analysis, recommendation, UX optimization, and intervention strategy.</li>
+          <li>Processed approximately 96M raw logs into around 93M valid labeled logs and approximately 32.5M valid sessions.</li>
+          <li>Designed a rule-based action-labeling framework mapping raw URLs/events into 20 meaningful user actions.</li>
+          <li>Built journey mapping from <code>log -&gt; action -&gt; phase -&gt; session</code> with 5 customer journey phases.</li>
+          <li>Segmented sessions into Information Seekers, Product Explorers, and Shoppers.</li>
+          <li>Built and evaluated a rule-based exit-intent prediction approach and compared against a random baseline.</li>
+        </ul>
+      </section>
+
+      <section id="methodology" class="section">
+        <h2>Methodology</h2>
+        <h3>1. Web Behavior Research</h3>
+        <ul>
+          <li>Conversion optimization: predict purchase likelihood.</li>
+          <li>Recommendation opportunities: next-best product/content, cross-sell, and upsell.</li>
+          <li>Clickstream UX analysis: detect interest points, drop-off points, and friction.</li>
+        </ul>
+
+        <h3>2. Data Cleaning and Preprocessing</h3>
+        <ul>
+          <li>Removed duplicates, invalid/error/service/irrelevant logs, and unclassified actions.</li>
+          <li>Computed action-level time gaps and rebuilt sessions using inactivity thresholds.</li>
+          <li>Recomputed session/action durations and extracted product, source, and campaign fields.</li>
+          <li>Reduced approximately 96M raw logs to around 93M valid logs and approximately 32.5M valid sessions.</li>
+        </ul>
+
+        <h3>3. Action Labeling</h3>
+        <p>Mapped URLs and events into 20 behavioral actions, including:</p>
+        <ul>
+          <li>Homepage visit, product search, listing view, detail view, promotion check.</li>
+          <li>Cart check, add-to-cart, installment view, payment, purchase.</li>
+          <li>Warranty check, order tracking, and account check.</li>
+        </ul>
+
+        <h3>4. Journey Mapping</h3>
+        <p>Structured the customer journey as <code>log -&gt; action -&gt; phase -&gt; session</code> with 5 phases:</p>
+        <ul>
+          <li>Awareness: information/promotion/homepage discovery.</li>
+          <li>Consideration: search, browse, compare, and product-detail interactions.</li>
+          <li>Decision: cart, installment, payment, and purchase-related intent.</li>
+          <li>Consumption: post-purchase actions such as warranty and order status.</li>
+          <li>Loyalty: account or loyalty-related interactions.</li>
+        </ul>
+
+        <h3>5. Behavioral Segmentation</h3>
+        <ul>
+          <li>Information Seekers: 25.04% of traffic, short engagement, low conversion potential.</li>
+          <li>Product Explorers: 69.65% of traffic, strongest conversion opportunity pool.</li>
+          <li>Shoppers: 3.87% of traffic, strongest purchase-intent signals.</li>
+        </ul>
+
+        <h3>6. Exit-Intent Prediction</h3>
+        <ul>
+          <li>Built historical journey/exit patterns and generated step-level session records.</li>
+          <li>Predicted exit likelihood at each step and compared against random baseline.</li>
+          <li>Scale: approximately 32.5M sessions, 32.2M training sessions, 325K testing sessions.</li>
+          <li>Patterns/evaluation: 3M exit patterns and 924K evaluated steps from 325K test sessions.</li>
+        </ul>
+      </section>
+
+      <section id="insights" class="section">
+        <h2>Key Insights</h2>
+        <ul>
+          <li>Only around 2.8% of approximately 32.5M valid sessions showed purchase-related behavior.</li>
+          <li>Most purchase-related actions happened between the 2nd and 5th action in a session.</li>
+          <li>More than 90% of sessions lasted 0-5 minutes, requiring early intervention.</li>
+          <li>More than 50% of average page dwell time was 0-15 seconds; around 90% under 3 minutes.</li>
+          <li>Traffic peaks were 9-11, 14-16, and 19-21, contributing approximately 54% of traffic.</li>
+          <li>Consideration phase dominated at 77.23% of traffic; Decision phase was 2.62%.</li>
+          <li>Product interest was concentrated in smartphones (approximately 58%) and laptops (approximately 24%).</li>
+          <li>Sessions with 1-5 product views represented 98.7% of product-viewing sessions.</li>
+          <li>Search contributed nearly 50% of first-session entries; direct was around 20%.</li>
+          <li>Average total session duration: Shoppers 297s, Product Explorers 98s, Information Seekers 0.9s.</li>
+          <li>Sessions with 2-5 phases accounted for 70.8% of purchase sessions.</li>
+          <li>Sessions with 6+ phases had the highest purchase-session rate at 58.33%.</li>
         </ul>
       </section>
 
       <section id="results" class="section">
-        <!-- <h2>Results</h2> -->
+        <h2>Exit-Intent Prediction Results</h2>
+        <h3>Step-Level Evaluation</h3>
         <ul>
-          <!-- <li>Validated the project pipeline with implementation-level tests and example scenarios.</li>
-          <li>Documented key outputs, observed behavior, and practical limitations for deployment or research reuse.</li> -->
+          <li>Rule-based precision: 62.9%</li>
+          <li>Rule-based recall: 58.9%</li>
+          <li>Rule-based F1-score: 60.8%</li>
+          <li>Random baseline precision: 35.2%</li>
+          <li>Random baseline recall: 50.0%</li>
+          <li>Random baseline F1-score: 41.3%</li>
+        </ul>
+
+        <h3>Session-Level Evaluation</h3>
+        <ul>
+          <li>Rule-based precision: 68.3%</li>
+          <li>Rule-based recall: 65.6%</li>
+          <li>Rule-based F1-score: 66.9%</li>
+          <li>Random baseline precision: 46.4%</li>
+          <li>Random baseline recall: 50.0%</li>
+          <li>Random baseline F1-score: 48.1%</li>
+        </ul>
+
+        <h3>Stability Check</h3>
+        <p>
+          The rule-based method produced similar performance on two sample sets, with differences below approximately 1.1%,
+          indicating stable behavior across test samples.
+        </p>
+      </section>
+
+      <section id="recommendations" class="section">
+        <h2>Business Recommendations</h2>
+        <ul>
+          <li>Prioritize intervention in the first 0-5 minutes of each session.</li>
+          <li>Use early high-intent signals as triggers: search, repeated product detail views, cart/payment-related actions.</li>
+          <li>Focus efforts on Product Explorers and Shoppers instead of broad untargeted promotion.</li>
+          <li>Segment by purchase probability: low, medium, high, then align intervention intensity to each segment.</li>
+          <li>Use exit-intent triggers for popup, reminder, recommendation, social proof, and navigation support.</li>
+          <li>Schedule campaign testing around peak windows: 9-11, 14-16, and 19-21.</li>
+          <li>Combine session behavior with historical customer activity for stronger intent prediction.</li>
+          <li>Use clickstream journey analytics to reduce friction in navigation, content placement, and checkout flow.</li>
         </ul>
       </section>
     </article>
