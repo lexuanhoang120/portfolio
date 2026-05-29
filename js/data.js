@@ -425,7 +425,7 @@ const portfolioData = {
         department: "Department of Artificial Intelligence and Robotics",
         organization: "Sejong University",
         location: "Seoul, Korea",
-        phone: "+82 10 6248 7972",
+        // phone: "+82 10 6248 7972",
         email: "cjeong72@gmail.com"
       },
       {
@@ -434,7 +434,7 @@ const portfolioData = {
         department: "Department of Mechanical Engineering",
         organization: "Ho Chi Minh University of Technology",
         location: "VNUHCM, Vietnam",
-        phone: "+84 903 686 334",
+        // phone: "+84 903 686 334",
         email: "pcbang@hcmut.edu.vn"
       },
       {
@@ -443,7 +443,7 @@ const portfolioData = {
         department: "VTCODE Technology and Science Applications Limited Company",
         organization: "VTCODE",
         location: "Binh Thanh District, Ho Chi Minh City, Vietnam",
-        phone: "+84 986 198 731"
+        // phone: "+84 986 198 731"
       }
     ]
   },
